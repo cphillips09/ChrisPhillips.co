@@ -310,7 +310,7 @@
       }).catch(function (ex) {
         sending = false; next.disabled = false; next.textContent = 'Get my analysis';
         err(4, ex && ex.message === 'not-configured'
-          ? 'This form isn’t connected yet. Please email ' + (cfg.CONTACT_EMAIL || 'me') + '.'
+          ? 'The form is temporarily unavailable. Please try again shortly.'
           : 'Something went wrong. Please check your connection and try again.');
       });
     });

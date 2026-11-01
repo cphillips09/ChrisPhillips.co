@@ -196,7 +196,6 @@
         <p class="eyebrow">Get in touch</p>
         <h2>Let's talk.</h2>
         <p>Thinking about selling, or have a business problem to solve? Send a note and I'll get back to you, usually within a day.</p>
-        <p>Prefer email? <a href="mailto:hello@chrisphillips.co">hello@chrisphillips.co</a></p>
       </div>
 
       <form id="contact-form" novalidate>
@@ -292,8 +291,7 @@
         company: d.get('company')
       };
       if (!Leads.configured) {
-        var body = fields.message + (fields.address ? '\n\nProperty: ' + fields.address : '') + '\n\n' + fields.name + '\n' + fields.email + '\n' + fields.phone;
-        location.href = 'mailto:' + (cfg.CONTACT_EMAIL || '') + '?subject=' + encodeURIComponent(fields.topic) + '&body=' + encodeURIComponent(body);
+        formStatus.textContent = 'The form is temporarily unavailable. Please try again shortly.';
         return;
       }
       var btn = form.querySelector('button[type=submit]');
@@ -301,7 +299,7 @@
       Leads.submit(fields).then(function () {
         form.reset(); syncAddress(); formStatus.textContent = 'Thanks! I\u2019ll be in touch soon.';
       }).catch(function () {
-        formStatus.textContent = 'Something went wrong. Please email me at ' + (cfg.CONTACT_EMAIL || '') + '.';
+        formStatus.textContent = 'Something went wrong. Please check your connection and try again.';
       }).then(function () { btn.disabled = false; });
     });
   </script>
