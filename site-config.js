@@ -10,7 +10,7 @@
  *                  While it's blank, the landing page uses a plain address box.
  */
 window.SITE_CONFIG = {
-  APPS_SCRIPT_URL: '',
+  APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbydzZb9fvzBxEzRn6OL-A5YY3E1JGcuQcrViFBDGQWxErKgjFnzJg168l2D42Rklrc6/exec',
   MAPS_API_KEY: '',
   CONTACT_EMAIL: 'hello@chrisphillips.co'
 };
