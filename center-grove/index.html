@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Center Grove Home Value | Chris Phillips</title>
+  <meta name="description" content="Center Grove homeowners: get a detailed market analysis and net proceeds estimate from a local listing agent.">
+  <!-- Keep this page out of search results. Do NOT block it in robots.txt, or crawlers can't see this tag. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#2f5d50">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../site-config.js"></script>
+  <script src="../leads.js"></script>
+</head>
+<body class="lp">
+  <div class="wrap">
+    <header class="lp-top">
+      <span class="brand">Chris Phillips</span>
+      <span class="lp-top-note">Center Grove · Greenwood · Bargersville</span>
+    </header>
+
+    <main class="lp-hero">
+      <div class="lp-pitch">
+        <p class="eyebrow">Center Grove homeowners</p>
+        <h1>Find out what your home will really sell for.</h1>
+        <p class="lede">Online estimates guess. I run a detailed market analysis on your home, then show you what you'd actually walk away with.</p>
+        <ul class="lp-points">
+          <li><strong>In-depth pricing.</strong> Sold, active, pending and expired listings near you, adjusted for your home's condition and updates.</li>
+          <li><strong>Your bottom line.</strong> Estimated net proceeds at each price point, so you can plan your next move.</li>
+          <li><strong>A real marketing plan.</strong> Professional photos, a drone tour and floor plans when you're ready to list.</li>
+        </ul>
+        <div class="lp-agent">
+          <img src="../images/chris_phillips.png" alt="Chris Phillips" width="64" height="64">
+          <p><strong>Chris Phillips</strong><br>Listing agent · 20+ years in Central Indiana real estate</p>
+        </div>
+      </div>
+
+      <div class="lp-card">
+        <form id="lp-form" novalidate>
+          <div class="lp-progress" aria-hidden="true"><span id="lp-bar"></span></div>
+          <p class="lp-count" id="lp-count">Step 1 of 4</p>
+
+          <!-- STEP 1: ADDRESS -->
+          <fieldset class="lp-step is-active" data-step="1">
+            <legend>What's the address of the home?</legend>
+            <div id="addr-auto" class="lp-auto" hidden></div>
+            <input id="addr-manual" class="lp-input" name="address_typed" placeholder="Street address, city, ZIP" autocomplete="street-address">
+            <button type="button" class="lp-link" id="addr-toggle" hidden>Can't find it? Type the address instead</button>
+            <p class="lp-picked" id="addr-picked" hidden></p>
+            <p class="lp-hint">Your answers are saved as you go, so you won't lose your place.</p>
+            <p class="lp-error" id="err-1" role="alert"></p>
+          </fieldset>
+
+          <!-- STEP 2: TIMEFRAME -->
+          <fieldset class="lp-step" data-step="2">
+            <legend>When are you thinking about selling?</legend>
+            <div class="lp-options">
+              <label class="lp-option"><input type="radio" name="timeframe" value="As soon as possible"><span>As soon as possible</span></label>
+              <label class="lp-option"><input type="radio" name="timeframe" value="1–3 months"><span>In 1–3 months</span></label>
+              <label class="lp-option"><input type="radio" name="timeframe" value="3–6 months"><span>In 3–6 months</span></label>
+              <label class="lp-option"><input type="radio" name="timeframe" value="6–12 months"><span>In 6–12 months</span></label>
+              <label class="lp-option"><input type="radio" name="timeframe" value="Just curious"><span>Just curious what it's worth</span></label>
+            </div>
+            <p class="lp-error" id="err-2" role="alert"></p>
+          </fieldset>
+
+          <!-- STEP 3: CONTACT -->
+          <fieldset class="lp-step" data-step="3">
+            <legend>Where should I send your analysis?</legend>
+            <label>Full name<input class="lp-input" name="name" autocomplete="name" required></label>
+            <label>Email<input class="lp-input" type="email" name="email" autocomplete="email" required></label>
+            <label>Phone<input class="lp-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label>
+            <p class="lp-consent">By continuing, you agree that Chris Phillips may contact you by phone, text or email about your home. Message and data rates may apply. Reply STOP to opt out of texts.</p>
+            <p class="lp-error" id="err-3" role="alert"></p>
+          </fieldset>
+
+          <!-- STEP 4: DETAILS -->
+          <fieldset class="lp-step" data-step="4">
+            <legend>Tell me about your home</legend>
+            <textarea class="lp-input" name="details" rows="7" placeholder="Beds and baths, recent updates, anything that needs work, why you're thinking of moving... whatever you'd like me to know."></textarea>
+            <p class="lp-hint">Optional, but the more I know, the more accurate your analysis.</p>
+            <p class="lp-error" id="err-4" role="alert"></p>
+          </fieldset>
+
+          <!-- honeypot -->
+          <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="lp-nav" id="lp-nav">
+            <button type="button" class="btn btn-ghost" id="lp-back" hidden>Back</button>
+            <button type="submit" class="btn btn-primary" id="lp-next">Continue</button>
+          </div>
+          <p class="lp-fine" id="lp-fine">No cost. No obligation.</p>
+        </form>
+
+        <div class="lp-done" id="lp-done" hidden tabindex="-1">
+          <p class="eyebrow">You're all set</p>
+          <h2>Thanks! I'm on it.</h2>
+          <p>I'll start on your market analysis and reach out within one business day. If something changes in the meantime, just reply to my email.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-brands">
+        <picture>
+          <source srcset="../images/logos/jet-dark.png" media="(prefers-color-scheme: dark)">
+          <img class="logo-jet" src="../images/logos/jet.png" alt="The James Embry Team" width="320" height="295" loading="lazy">
+        </picture>
+        <picture>
+          <source srcset="../images/logos/kw-dark.png" media="(prefers-color-scheme: dark)">
+          <img class="logo-kw" src="../images/logos/kw.png" alt="Keller Williams Indianapolis Metro North" width="560" height="218" loading="lazy">
+        </picture>
+      </div>
+      <div class="legal">
+        <svg class="eho" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Equal Housing Opportunity"><path d="M50 6 6 30v10h8v40h72V40h8V30L50 6Zm28 66H22V36l28-17 28 17v36Z" fill="currentColor"/><rect x="34" y="42" width="32" height="7" fill="currentColor"/><rect x="34" y="55" width="32" height="7" fill="currentColor"/><text x="50" y="91" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.4" letter-spacing=".2" fill="currentColor">EQUAL HOUSING</text><text x="50" y="100" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="8.4" letter-spacing=".2" fill="currentColor">OPPORTUNITY</text></svg>
+        <p>Chris Phillips is a licensed real estate broker with The James Embry Team at Keller Williams Indianapolis Metro North. Each Keller Williams office is independently owned and operated. © 2026 Chris Phillips.</p>
+        <p>We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation. We encourage and support an affirmative advertising and marketing program in which there are no barriers to obtaining housing because of race, color, religion, sex, handicap, familial status, or national origin.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var cfg = window.SITE_CONFIG || {};
+    var form = document.getElementById('lp-form');
+    var steps = [].slice.call(form.querySelectorAll('.lp-step'));
+    var bar = document.getElementById('lp-bar');
+    var count = document.getElementById('lp-count');
+    var back = document.getElementById('lp-back');
+    var next = document.getElementById('lp-next');
+    var fine = document.getElementById('lp-fine');
+    var leadId = window.Leads ? Leads.newId() : String(Date.now());
+    var current = 1, sending = false, lastSent = '';
+
+    // ---------- Address (Google Places Autocomplete, with a plain-text fallback) ----------
+    var manual = document.getElementById('addr-manual');
+    var autoBox = document.getElementById('addr-auto');
+    var toggle = document.getElementById('addr-toggle');
+    var picked = document.getElementById('addr-picked');
+    var addr = null;      // filled when a Google suggestion is chosen
+    var useAuto = false;
+
+    function setMode(auto) {
+      useAuto = auto;
+      autoBox.hidden = !auto;
+      manual.hidden = auto;
+      toggle.hidden = !auto;
+      if (!auto) { picked.hidden = true; }
+    }
+    toggle.addEventListener('click', function () { setMode(false); manual.focus(); });
+
+    function comp(list, type, short) {
+      for (var i = 0; i < (list || []).length; i++) {
+        if (list[i].types.indexOf(type) !== -1) return short ? list[i].shortText : list[i].longText;
+      }
+      return '';
+    }
+
+    function placeChosen(place) {
+      place.fetchFields({ fields: ['id', 'formattedAddress', 'addressComponents', 'location'] }).then(function () {
+        var c = place.addressComponents;
+        addr = {
+          address: place.formattedAddress,
+          street: [comp(c, 'street_number'), comp(c, 'route')].filter(Boolean).join(' '),
+          city: comp(c, 'locality') || comp(c, 'sublocality') || comp(c, 'administrative_area_level_3'),
+          state: comp(c, 'administrative_area_level_1', true),
+          zip: comp(c, 'postal_code'),
+          lat: place.location ? place.location.lat() : '',
+          lng: place.location ? place.location.lng() : '',
+          place_id: place.id
+        };
+        picked.textContent = '✓ ' + addr.address;
+        picked.hidden = false;
+        document.getElementById('err-1').textContent = '';
+      });
+    }
+
+    function loadMaps(key) {
+      // Google's official dynamic loader (loads the API only when first used)
+      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({ key: key, v: 'weekly' });
+
+      return google.maps.importLibrary('places').then(function (lib) {
+        var pac = new lib.PlaceAutocompleteElement({
+          includedRegionCodes: ['us'],
+          includedPrimaryTypes: ['street_address', 'premise', 'subpremise'],
+          // Favor results around Center Grove (Greenwood / Bargersville / Whiteland)
+          locationBias: { center: { lat: 39.5600, lng: -86.1650 }, radius: 20000 }
+        });
+        pac.setAttribute('placeholder', 'Start typing your address');
+        autoBox.appendChild(pac);
+        pac.addEventListener('gmp-select', function (ev) { placeChosen(ev.placePrediction.toPlace()); });
+        pac.addEventListener('gmp-placeselect', function (ev) { if (ev.place) placeChosen(ev.place); }); // older API versions
+        pac.addEventListener('gmp-error', function () { setMode(false); });
+        setMode(true);
+      });
+    }
+
+    if (cfg.MAPS_API_KEY) {
+      loadMaps(cfg.MAPS_API_KEY).catch(function () { setMode(false); });
+    } else {
+      setMode(false);
+    }
+
+    // ---------- Step logic ----------
+    function show(n) {
+      current = n;
+      steps.forEach(function (s) { s.classList.toggle('is-active', Number(s.dataset.step) === n); });
+      bar.style.width = (n / steps.length * 100) + '%';
+      count.textContent = 'Step ' + n + ' of ' + steps.length;
+      back.hidden = n === 1;
+      next.textContent = n === steps.length ? 'Get my analysis' : 'Continue';
+      fine.hidden = n !== steps.length && n !== 1;
+      var focusable = steps[n - 1].querySelector('input:not([type=radio]), textarea, input[type=radio]:checked, input[type=radio]');
+      if (focusable && n !== 1) setTimeout(function () { focusable.focus({ preventScroll: true }); }, 50);
+    }
+
+    function err(n, msg) { document.getElementById('err-' + n).textContent = msg || ''; return !msg; }
+
+    function addressValue() {
+      if (useAuto && addr) return addr.address;
+      return manual.value.trim();
+    }
+
+    function validate(n) {
+      var f = form.elements;
+      if (n === 1) {
+        if (useAuto && !addr) return err(1, 'Please choose your address from the list, or type it in instead.');
+        if (!useAuto && addressValue().length < 6) return err(1, 'Please enter the property address.');
+        return err(1);
+      }
+      if (n === 2) return err(2, form.querySelector('input[name=timeframe]:checked') ? '' : 'Please choose a timeframe.');
+      if (n === 3) {
+        if (!f.name.value.trim()) return err(3, 'Please enter your name.');
+        if (!/^\S+@\S+\.\S+$/.test(f.email.value.trim())) return err(3, 'Please enter a valid email address.');
+        if (f.phone.value.replace(/\D/g, '').length < 10) return err(3, 'Please enter a 10-digit phone number.');
+        return err(3);
+      }
+      return true;
+    }
+
+    function payload(stage) {
+      var f = form.elements, a = (useAuto && addr) ? addr : { address: addressValue() };
+      return {
+        form: 'center-grove',
+        lead_id: leadId,
+        stage: stage,
+        address: a.address, street: a.street || '', city: a.city || '', state: a.state || '',
+        zip: a.zip || '', lat: a.lat || '', lng: a.lng || '', place_id: a.place_id || '',
+        address_source: (useAuto && addr) ? 'google' : 'typed',
+        timeframe: (form.querySelector('input[name=timeframe]:checked') || {}).value || '',
+        name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(),
+        details: f.details.value.trim(),
+        company: f.company.value // honeypot; script ignores rows where this is filled
+      };
+    }
+
+    function send(stage) {
+      if (!window.Leads || !Leads.configured) return Promise.reject(new Error('not-configured'));
+      return Leads.submit(payload(stage));
+    }
+
+    var STAGES = ['address', 'timeframe', 'contact', 'complete'];
+
+    // Send a progress save only when something actually changed since the last one
+    function saveProgress(stage) {
+      var p = payload(stage);
+      var key = [p.address, p.timeframe, p.name, p.email, p.phone].join('|');
+      if (key === lastSent) return;
+      lastSent = key;
+      send(stage).catch(function () {});
+    }
+
+    // Auto-advance after a timeframe is picked
+    form.querySelectorAll('input[name=timeframe]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        setTimeout(function () { if (current === 2 && validate(2)) { saveProgress('timeframe'); show(3); } }, 250);
+      });
+    });
+
+    back.addEventListener('click', function () { if (current > 1) show(current - 1); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (sending || !validate(current)) return;
+
+      // Save progress after every step, so a lead isn't lost if they stop partway.
+      // Each save reuses the same lead_id; the sheet updates one row per lead.
+      if (current < steps.length) {
+        saveProgress(STAGES[current - 1]);
+        show(current + 1);
+        return;
+      }
+
+      sending = true;
+      next.disabled = true; next.textContent = 'Sending...';
+      send('complete').then(function () {
+        form.hidden = true;
+        var done = document.getElementById('lp-done');
+        done.hidden = false; done.focus();
+      }).catch(function (ex) {
+        sending = false; next.disabled = false; next.textContent = 'Get my analysis';
+        err(4, ex && ex.message === 'not-configured'
+          ? 'This form isn’t connected yet. Please email ' + (cfg.CONTACT_EMAIL || 'me') + '.'
+          : 'Something went wrong. Please check your connection and try again.');
+      });
+    });
+
+    show(1);
+  })();
+  </script>
+</body>
+</html>

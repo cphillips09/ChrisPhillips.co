@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ops Playbook — Chris Phillips</title>
+  <meta name="description" content="The five-step loop Chris Phillips uses to build operational systems for real estate businesses.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#2f5d50">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="/">Chris Phillips</a>
+      <div class="nav-links"><a href="/">Home</a><a class="nav-cta" href="/#contact">Get in touch</a></div>
+    </nav>
+
+    <header class="page-hero">
+      <p class="eyebrow">Ops Playbook</p>
+      <h1>Identify. Build. Implement. Delegate. Repeat.</h1>
+      <p class="lede">Operations is designing the way work gets done so the business hits its goal, whether that goal is speed, cost, or flawless service. This is the loop I run every time.</p>
+    </header>
+
+    <div class="prose">
+      <div class="step" tabindex="0">
+        <div class="step-num">01</div>
+        <div><h3>Identify</h3>
+          <p>Start with the processes you repeat most. In real estate that's listings and buyers. Define the primary goal (it wins every tie), then bring in everyone who does the work or feels its effects. Their input makes the system better and the rollout easier.</p></div>
+      </div>
+      <div class="step" tabindex="0">
+        <div class="step-num">02</div>
+        <div><h3>Build</h3>
+          <p>Systems are people, tools, and processes. Write the process first as a checklist, then pick tools that fit the people using them. Admins love spreadsheets. Salespeople don't, so I design around that.</p></div>
+      </div>
+      <div class="step" tabindex="0">
+        <div class="step-num">03</div>
+        <div><h3>Implement</h3>
+          <p>Start using it and watch for friction and ambiguity. A good system removes decisions. Train on the what <em>and</em> the why; people execute better when they understand the purpose.</p></div>
+      </div>
+      <div class="step" tabindex="0">
+        <div class="step-num">04</div>
+        <div><h3>Delegate</h3>
+          <p>To scale, hand off running the system and keep ownership through reporting. That frees you to build the next one.</p></div>
+      </div>
+      <div class="step" tabindex="0">
+        <div class="step-num">05</div>
+        <div><h3>Repeat</h3>
+          <p>Find where the most time or money goes, or what frustrates you every week. If nothing jumps out, it's time to grow: sales, marketing, recruiting. The job is never done.</p></div>
+      </div>
+
+      <div class="cta-band">
+        <h2>Want this applied to your business?</h2>
+        <p>Tell me what's breaking and I'll tell you where I'd start.</p>
+        <a class="btn btn-primary" href="/#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-brands">
+        <picture>
+          <source srcset="images/logos/jet-dark.png" media="(prefers-color-scheme: dark)">
+          <img class="logo-jet" src="images/logos/jet.png" alt="The James Embry Team" width="320" height="295" loading="lazy">
+        </picture>
+        <picture>
+          <source srcset="images/logos/kw-dark.png" media="(prefers-color-scheme: dark)">
+          <img class="logo-kw" src="images/logos/kw.png" alt="Keller Williams Indianapolis Metro North" width="560" height="218" loading="lazy">
+        </picture>
+      </div>
+      <div class="foot">
+        <div class="foot-links">
+          <a href="story.html">My Story</a>
+          <a href="playbook.html">Ops Playbook</a>
+          <a href="projects.html">Projects</a>
+        </div>
+        <p class="fine">© <span id="yr">2026</span> Chris Phillips · Central Indiana</p>
+      </div>
+      <div class="legal">
+        <svg class="eho" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Equal Housing Opportunity"><path d="M50 6 6 30v10h8v40h72V40h8V30L50 6Zm28 66H22V36l28-17 28 17v36Z" fill="currentColor"/><rect x="34" y="42" width="32" height="7" fill="currentColor"/><rect x="34" y="55" width="32" height="7" fill="currentColor"/><text x="50" y="91" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.4" letter-spacing=".2" fill="currentColor">EQUAL HOUSING</text><text x="50" y="100" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="8.4" letter-spacing=".2" fill="currentColor">OPPORTUNITY</text></svg>
+        <p>Chris Phillips is a licensed real estate broker with The James Embry Team at Keller Williams Indianapolis Metro North. Each Keller Williams office is independently owned and operated.</p>
+        <p>We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation. We encourage and support an affirmative advertising and marketing program in which there are no barriers to obtaining housing because of race, color, religion, sex, handicap, familial status, or national origin.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Tint a playbook step while text inside it is selected
+    document.addEventListener('selectionchange', function () {
+      var sel = document.getSelection();
+      var node = sel && sel.rangeCount && !sel.isCollapsed ? sel.anchorNode : null;
+      var active = node ? (node.nodeType === 1 ? node : node.parentElement).closest('.step') : null;
+      document.querySelectorAll('.step.is-selected').forEach(function (s) { if (s !== active) s.classList.remove('is-selected'); });
+      if (active) active.classList.add('is-selected');
+    });
+  </script>
+  <script src="fx-image.js" defer></script>
+</body>
+</html>
