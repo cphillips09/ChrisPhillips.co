@@ -1,307 +1,138 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chris Phillips — Real Estate &amp; Operations</title>
-  <meta name="description" content="Chris Phillips helps Central Indiana homeowners sell with a proven, systems-driven listing process. 20+ years as a listing agent, managing broker, and operations director.">
-  <meta property="og:title" content="Chris Phillips — Real Estate & Operations">
-  <meta property="og:description" content="Helping Central Indiana homeowners sell, and helping real estate businesses run better.">
-  <meta property="og:url" content="https://chrisphillips.co/">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#2f5d50">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<!-- PARTIAL:head START -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#141715">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/fraunces-600-opsz-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/site.js" defer></script>
+<!-- PARTIAL:head END -->
+<link rel="preload" href="/forms.json" as="fetch" crossorigin>
+<script src="/assets/js/site-config.js" defer></script>
+<script src="/assets/js/forms.js" defer></script>
+<title>Chris Phillips | Listing Agent for Greenwood &amp; Center Grove Home Sellers</title>
+<meta name="description" content="Chris Phillips is a listing agent for Greenwood and Center Grove home sellers: 20+ years, 450+ homes sold, a deeper market analysis and a clear plan for your sale.">
+<link rel="canonical" href="https://chrisphillips.co/">
 </head>
-<body>
-  <div class="wrap">
-    <nav class="nav">
-      <a class="brand" href="/">Chris Phillips</a>
-      <div class="nav-links">
-        <a href="#selling">Selling</a>
-        <a href="#operations">Operations</a>
-        <a class="nav-cta" href="#contact">Get in touch</a>
-      </div>
+<body data-section="selling">
+<!-- PARTIAL:header START -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="/">Chris Phillips</a>
+    <nav class="toggle" aria-label="Site sections">
+      <a class="toggle__link" href="/" data-section="selling">Selling</a>
+      <a class="toggle__link" href="/operations/" data-section="operations">Operations</a>
     </nav>
-
-    <!-- HERO -->
-    <header class="hero">
-      <div>
-        <p class="eyebrow">Central Indiana · 20+ years in real estate</p>
-        <h1>I help homeowners sell, and I help real estate businesses run better.</h1>
-        <p class="lede">Listing agent, managing broker, and operations director. Selling a home is a project with a lot of moving parts, and I run it like one.</p>
-        <div class="btns">
-          <a class="btn btn-primary" href="#contact">Start a conversation</a>
-          <a class="btn btn-ghost" href="#process">How I sell homes</a>
-        </div>
-      </div>
-      <div class="portrait fx-frame">
-        <span>CP</span>
-        <img src="images/chris_phillips.png" alt="Chris Phillips" data-fx onerror="this.remove()">
-      </div>
-    </header>
   </div>
-
-  <!-- TWO PILLARS -->
-  <section>
+</header>
+<!-- PARTIAL:header END -->
+<main id="main" tabindex="-1">
+  <section class="wrap hero" aria-labelledby="hero-title">
+    <div>
+      <p class="eyebrow">Greenwood · Center Grove · Listing agent</p>
+      <h1 id="hero-title">Sell your home with a plan, not a guess.</h1>
+      <p class="lede">I'm Chris Phillips, a listing agent with 20+ years and 450+ homes sold. I start with a deeper market analysis than you'll get anywhere else, then run your sale step by step and keep you informed the whole way.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="#contact" data-prefill="reason:Sell my home">See what you'd net <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <p class="skeleton-note">Portrait with the fx-image effect arrives in Phase 3.</p>
+    </div>
+  </section>
+  <section class="section" id="why" aria-labelledby="why-title">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Two sides of the business</p>
-        <h2>Front of house and back of house.</h2>
+        <h2 id="why-title">Why sellers choose me</h2>
       </div>
-      <div class="pillars">
-        <article class="card" id="selling">
-          <span class="tag">Listing Agent</span>
-          <h3>Selling your home</h3>
-          <p>You shouldn't have to manage your own sale. I run every step, from the first price conversation to the closing table, and keep you posted along the way.</p>
-          <ul>
-            <li>A pricing strategy grounded in the data, with your estimated net proceeds up front</li>
-            <li>Professional photography, a listing video, and a launch checklist so nothing slips</li>
-            <li>20+ years of negotiating, from Century 21 agent to managing broker</li>
-            <li>Serving homeowners across Central Indiana with The James Embry Team</li>
-          </ul>
-          <a class="btn btn-ghost" href="#contact" data-topic="Selling a home">Talk about selling →</a>
-        </article>
-
-        <article class="card" id="operations">
-          <span class="tag">Operations Director</span>
-          <h3>Building a business that scales</h3>
-          <p>Systems, technology, training, and accountability so agents can focus on clients instead of chaos.</p>
-          <ul>
-            <li>Took a Keller Williams team from zero to top five in the market, and #1 KW team in the region, in three years</li>
-            <li>Consulted for brokerages and teams on systems that scale</li>
-            <li>Director of Operations, The James Embry Team</li>
-            <li>Builds custom tools: AI-driven pipelines, automated reporting, onboarding</li>
-          </ul>
-          <a class="btn btn-ghost" href="#contact" data-topic="Operations / consulting">Talk about your business →</a>
-        </article>
-      </div>
+      <p class="skeleton-note">Four proof cards arrive in Phase 3.</p>
     </div>
   </section>
-
-  <!-- SELLER PROCESS -->
-  <section id="process" style="padding-top:0">
+  <section class="section" id="process" aria-labelledby="process-title">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">How I sell your home</p>
-        <h2>Five steps, no surprises.</h2>
-        <p class="lede" style="margin:0">Every listing follows the same proven process, so you always know what's next and why.</p>
+        <h2 id="process-title">How I sell your home</h2>
+        <p class="lede">Five steps, no surprises. Every listing follows the same process, so you always know what's next and why.</p>
       </div>
-      <ol class="process">
-        <li class="process-step">
-          <span class="process-num">01</span>
-          <h3>In-depth market analysis</h3>
-          <p>Most agents pull a few recent sales. I go much deeper, so your price holds up with buyers and appraisers alike.</p>
-          <ul class="chips">
-            <li>Sold, active &amp; pending comps</li>
-            <li>Expired &amp; withdrawn listings</li>
-            <li>Net proceeds at each price</li>
-          </ul>
-        </li>
-        <li class="process-step">
-          <span class="process-num">02</span>
-          <h3>Prep &amp; staging consult</h3>
-          <p>A walkthrough with a clear, prioritized list of what's worth doing before photos, and what isn't.</p>
-          <ul class="chips">
-            <li>Staging consult</li>
-            <li>Prep priority list</li>
-          </ul>
-        </li>
-        <li class="process-step">
-          <span class="process-num">03</span>
-          <h3>High-end marketing</h3>
-          <p>Your home shows up online the way buyers expect a premium listing to look.</p>
-          <ul class="chips">
-            <li>Professional photography</li>
-            <li>Drone aerial tour</li>
-            <li>Floor plans</li>
-          </ul>
-        </li>
-        <li class="process-step">
-          <span class="process-num">04</span>
-          <h3>Launch &amp; showings</h3>
-          <p>A coordinated go-live, steady showing feedback, and honest updates on how the market is responding.</p>
-          <ul class="chips">
-            <li>Coordinated launch</li>
-            <li>Showing feedback</li>
-          </ul>
-        </li>
-        <li class="process-step">
-          <span class="process-num">05</span>
-          <h3>Negotiate &amp; close</h3>
-          <p>Offers compared on what you actually net, then a managed path through inspection, appraisal, and closing.</p>
-          <ul class="chips">
-            <li>Offers compared on net</li>
-            <li>Inspection &amp; appraisal</li>
-          </ul>
-        </li>
-      </ol>
-      <div class="btns" style="margin-top:32px">
-        <a class="btn btn-primary" href="#contact" data-topic="Selling a home">Get your market analysis</a>
-      </div>
+      <p class="skeleton-note">The five steps arrive in Phase 3.</p>
     </div>
   </section>
-
-  <!-- METHOD -->
-  <section style="padding-top:0">
+  <section class="section" id="local" aria-labelledby="local-title">
     <div class="wrap">
-      <div class="method">
-        <h2>How I build systems</h2>
-        <p>Every system I build follows the same loop. It works for a two-person team and a hundred-agent office.</p>
-        <div class="steps">
-          <span>Identify</span><span>Build</span><span>Implement</span><span>Delegate</span><span>Repeat</span>
-        </div>
-        <a href="playbook.html">Read the playbook →</a>
+      <div class="section-head">
+        <h2 id="local-title">Your neighbor, not just your agent.</h2>
       </div>
+      <p class="skeleton-note">Local section copy arrives in Phase 3.</p>
     </div>
   </section>
-
-  <!-- PROJECTS -->
-  <section style="padding-top:0">
+  <section class="section" id="about" aria-labelledby="about-title">
     <div class="wrap">
-      <div class="method method--ink">
-        <h2>What I build</h2>
-        <p>APIs that connect the tools you already pay for, custom websites, and databases that keep themselves up to date.</p>
-        <div class="steps">
-          <span>APIs</span><span>Websites</span><span>Databases</span><span>Automation</span><span>AI tools</span>
-        </div>
-        <a href="projects.html">See the projects →</a>
+      <div class="section-head">
+        <h2 id="about-title">About Chris</h2>
       </div>
+      <p class="skeleton-note">Bio arrives in Phase 3.</p>
     </div>
   </section>
-
-  <!-- STORY -->
-  <section style="padding-top:0">
+  <section class="section" id="record" aria-labelledby="record-title">
     <div class="wrap">
-      <div class="method method--warm">
-        <h2>Twenty years, two sides</h2>
-        <p>Licensed right out of high school, managing broker of a fast-growing firm, then building a top-five team from scratch. Here's the path that shaped how I sell homes and run businesses.</p>
-        <div class="steps">
-          <span>Century 21</span><span>Managing Broker</span><span>Keller Williams</span><span>The James Embry Team</span>
+      <div class="section-head">
+        <h2 id="record-title">Track record</h2>
+      </div>
+      <p class="skeleton-note">Stat row and the (hidden) reviews block arrive in Phase 3.</p>
+    </div>
+  </section>
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap narrow">
+      <div class="section-head">
+        <h2 id="contact-title">Let's talk about your home.</h2>
+        <p class="lede">Tell me a little about your plans and I'll get back to you within one business day.</p>
+      </div>
+      <div class="form-card">
+        <div data-form="home-contact" data-prefill="reason:Sell my home">
+          <p class="form-loading">Loading form…</p>
+          <noscript><p class="noscript-note">This form needs JavaScript. Please turn it on, or try another browser.</p></noscript>
         </div>
-        <a href="story.html">Read my story →</a>
       </div>
     </div>
   </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap contact">
-      <div class="contact-meta">
-        <p class="eyebrow">Get in touch</p>
-        <h2>Let's talk.</h2>
-        <p>Thinking about selling, or have a business problem to solve? Send a note and I'll get back to you, usually within a day.</p>
+</main>
+<!-- PARTIAL:disclaimer START -->
+<aside class="disclaimer" aria-label="Disclaimer">
+  <div class="wrap">
+    <p>Home value estimates, market analyses, and net proceeds estimates are opinions of price provided for marketing purposes. They are not appraisals and should not be relied on as an appraisal. Figures are estimates based on information believed reliable but not guaranteed. Actual sale price, costs, and proceeds may vary. Nothing on this site is legal, tax, or financial advice; consult the appropriate professional. If your property is currently listed with another real estate broker, this is not intended as a solicitation of that listing.</p>
+  </div>
+</aside>
+<!-- PARTIAL:disclaimer END -->
+<!-- PARTIAL:footer START -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brands">
+        <img class="logo-jet" src="/assets/img/logos/jet-dark.png" alt="The James Embry Team" width="320" height="295" loading="lazy" decoding="async">
+        <img class="logo-kw" src="/assets/img/logos/kw-dark.png" alt="Keller Williams Indianapolis Metro North" width="560" height="218" loading="lazy" decoding="async">
       </div>
-
-      <form id="contact-form" novalidate>
-        <div class="row">
-          <label>Name<input name="name" required autocomplete="name"></label>
-          <label>Email<input type="email" name="email" required autocomplete="email"></label>
-        </div>
-        <div class="row">
-          <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
-          <label>I'm reaching out about
-            <select name="topic" id="topic">
-              <option>Selling a home</option>
-              <option>Operations / consulting</option>
-              <option>Joining a team</option>
-              <option>Something else</option>
-            </select>
-          </label>
-        </div>
-        <label id="address-field">Property address (optional)<input name="property_address" autocomplete="street-address"></label>
-        <label>Message<textarea name="message" required></textarea></label>
-        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div><button class="btn btn-primary" type="submit">Send message</button></div>
-        <p class="form-status" id="form-status" role="status"></p>
-      </form>
+      <ul class="social" aria-label="Chris Phillips on social media">
+        <li><a href="https://www.facebook.com/people/Chris-Phillips-Real-Estate/61596428678507/" target="_blank" rel="noopener" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/chris_phillips_realtor/" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/chris-phillips-898822282" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></li>
+      </ul>
     </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <div class="foot-brands">
-        <picture>
-          <source srcset="images/logos/jet-dark.png" media="(prefers-color-scheme: dark)">
-          <img class="logo-jet" src="images/logos/jet.png" alt="The James Embry Team" width="320" height="295" loading="lazy">
-        </picture>
-        <picture>
-          <source srcset="images/logos/kw-dark.png" media="(prefers-color-scheme: dark)">
-          <img class="logo-kw" src="images/logos/kw.png" alt="Keller Williams Indianapolis Metro North" width="560" height="218" loading="lazy">
-        </picture>
-      </div>
-      <div class="foot">
-        <div class="foot-links">
-          <a href="story.html">My Story</a>
-          <a href="playbook.html">Ops Playbook</a>
-          <a href="projects.html">Projects</a>
-        </div>
-        <p class="fine">© <span id="yr">2026</span> Chris Phillips · Central Indiana</p>
-      </div>
-      <div class="legal">
-        <svg class="eho" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Equal Housing Opportunity"><path d="M50 6 6 30v10h8v40h72V40h8V30L50 6Zm28 66H22V36l28-17 28 17v36Z" fill="currentColor"/><rect x="34" y="42" width="32" height="7" fill="currentColor"/><rect x="34" y="55" width="32" height="7" fill="currentColor"/><text x="50" y="91" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.4" letter-spacing=".2" fill="currentColor">EQUAL HOUSING</text><text x="50" y="100" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="8.4" letter-spacing=".2" fill="currentColor">OPPORTUNITY</text></svg>
-        <p>Chris Phillips is a licensed real estate broker with The James Embry Team at Keller Williams Indianapolis Metro North. Each Keller Williams office is independently owned and operated.</p>
+    <div class="footer__legal">
+      <svg class="eho" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Equal Housing Opportunity"><path d="M50 6 6 30v10h8v40h72V40h8V30L50 6Zm28 66H22V36l28-17 28 17v36Z" fill="currentColor"/><rect x="34" y="42" width="32" height="7" fill="currentColor"/><rect x="34" y="55" width="32" height="7" fill="currentColor"/><text x="50" y="91" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.4" letter-spacing=".2" fill="currentColor">EQUAL HOUSING</text><text x="50" y="100" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="8.4" letter-spacing=".2" fill="currentColor">OPPORTUNITY</text></svg>
+      <div class="footer__text">
+        <p>Chris Phillips, Chris Phillips Real Estate · Indiana Real Estate Broker, License RB14041595 · The James Embry Team · Keller Williams Indianapolis Metro North. Each Keller Williams office is independently owned and operated.</p>
         <p>We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation. We encourage and support an affirmative advertising and marketing program in which there are no barriers to obtaining housing because of race, color, religion, sex, handicap, familial status, or national origin.</p>
       </div>
     </div>
-  </footer>
-
-  <script src="fx-image.js" defer></script>
-  <script src="site-config.js"></script>
-  <script src="leads.js"></script>
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-
-    // Card buttons pre-select the topic
-    document.querySelectorAll('[data-topic]').forEach(function (a) {
-      a.addEventListener('click', function () {
-        document.getElementById('topic').value = a.dataset.topic;
-      });
-    });
-
-    // Show the property address field only for seller inquiries
-    var topicSel = document.getElementById('topic');
-    var addr = document.getElementById('address-field');
-    function syncAddress() { addr.style.display = topicSel.value === 'Selling a home' ? '' : 'none'; }
-    topicSel.addEventListener('change', syncAddress);
-    document.querySelectorAll('[data-topic]').forEach(function (a) { a.addEventListener('click', syncAddress); });
-    syncAddress();
-
-    // Submit to the Google Sheet (via Apps Script); falls back to email until it's connected
-    var form = document.getElementById('contact-form');
-    var formStatus = document.getElementById('form-status');
-    var cfg = window.SITE_CONFIG || {};
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      var d = new FormData(form);
-      var fields = {
-        form: 'website-contact',
-        lead_id: Leads.newId(),
-        stage: 'complete',
-        name: d.get('name'), email: d.get('email'), phone: d.get('phone') || '',
-        topic: d.get('topic'),
-        address: d.get('topic') === 'Selling a home' ? (d.get('property_address') || '') : '',
-        message: d.get('message'),
-        company: d.get('company')
-      };
-      if (!Leads.configured) {
-        formStatus.textContent = 'The form is temporarily unavailable. Please try again shortly.';
-        return;
-      }
-      var btn = form.querySelector('button[type=submit]');
-      btn.disabled = true; formStatus.textContent = 'Sending\u2026';
-      Leads.submit(fields).then(function () {
-        form.reset(); syncAddress(); formStatus.textContent = 'Thanks! I\u2019ll be in touch soon.';
-      }).catch(function () {
-        formStatus.textContent = 'Something went wrong. Please check your connection and try again.';
-      }).then(function () { btn.disabled = false; });
-    });
-  </script>
+    <p class="footer__fine">© <span data-year>2026</span> Chris Phillips Real Estate<span class="sep" aria-hidden="true">·</span><a href="/privacy/">Privacy</a><span class="sep" aria-hidden="true">·</span><a href="/terms/">Terms</a><span class="sep" aria-hidden="true">·</span><a href="/accessibility/">Accessibility</a></p>
+  </div>
+</footer>
+<!-- PARTIAL:footer END -->
 </body>
 </html>

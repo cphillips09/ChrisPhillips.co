@@ -1,0 +1,79 @@
+{
+  "version": "2026-11-15",
+  "consent": {
+    "version": "2026-11-15",
+    "mode": "text",
+    "html": "By submitting this form, you agree that Chris Phillips, The James Embry Team, and Keller Williams Indianapolis Metro North may contact you at the phone number and email address you provided about your real estate inquiry and related real estate services, including by phone call, text message, and email, and including calls and texts made with automated technology or prerecorded or artificial voice. Consent is not a condition of any purchase or service. Message frequency varies. Message and data rates may apply. Reply STOP to opt out of texts or HELP for help. You can unsubscribe from emails at any time. See our <a href=\"/privacy/\" target=\"_blank\">Privacy Policy</a> and <a href=\"/terms/\" target=\"_blank\">Terms</a>.",
+    "checkboxLabel": "I agree to be contacted as described above."
+  },
+  "forms": {
+    "home-contact": {
+      "tab": "Website Contact",
+      "mode": "single",
+      "submitLabel": "Send",
+      "fields": [
+        "name*",
+        "email*",
+        "phone*",
+        { "key": "address", "label": "Property address (if selling)" },
+        { "key": "reason", "label": "Why are you reaching out?", "type": "select",
+          "options": ["Sell my home", "Operations question", "Other"], "default": "Sell my home" },
+        { "key": "notes", "label": "Notes", "type": "textarea",
+          "placeholder": "Anything you'd like me to know: timing, questions, details about the home." }
+      ],
+      "success": {
+        "type": "message",
+        "title": "Thanks, {first_name}.",
+        "text": "I'll be in touch within one business day. Check your inbox for a confirmation."
+      }
+    },
+    "center-grove": {
+      "tab": "Center Grove",
+      "mode": "steps",
+      "saveProgress": true,
+      "note": "No cost. No obligation.",
+      "steps": [
+        { "stage": "address", "title": "What's the address of the home?",
+          "hint": "Your answers are saved as you go, so you won't lose your place.",
+          "fields": [ { "key": "address", "required": true } ] },
+        { "stage": "timeframe", "title": "When are you thinking about selling?", "autoAdvance": true,
+          "fields": [ { "key": "timeframe", "label": "Timeframe", "type": "choice", "required": true,
+            "options": [
+              { "value": "As soon as possible", "label": "As soon as possible" },
+              { "value": "1–3 months", "label": "In 1–3 months" },
+              { "value": "3–6 months", "label": "In 3–6 months" },
+              { "value": "6–12 months", "label": "In 6–12 months" },
+              { "value": "Just curious", "label": "Just curious what it's worth" }
+            ] } ] },
+        { "stage": "contact", "title": "Where should I send your analysis?", "showConsent": true,
+          "fields": [ "name*", "email*", "phone*" ] },
+        { "stage": "complete", "title": "Tell me about your home", "submitLabel": "Get my analysis",
+          "fields": [ { "key": "details", "label": "About the home", "type": "textarea",
+            "placeholder": "Beds and baths, recent updates, anything that needs work, why you're thinking of moving: whatever you'd like me to know.",
+            "hint": "Optional, but the more I know, the more accurate your analysis." } ] }
+      ],
+      "success": {
+        "type": "message",
+        "title": "Thanks! I'm on it.",
+        "text": "I'll start on your market analysis and reach out within one business day."
+      }
+    },
+    "sellers-playbook": {
+      "tab": "Sellers Playbook",
+      "mode": "single",
+      "submitLabel": "Send me the playbook",
+      "note": "Instant download. No spam.",
+      "fields": [
+        "email*",
+        { "key": "offer", "type": "hidden", "value": "Home Seller's Playbook" }
+      ],
+      "success": {
+        "type": "download",
+        "title": "It's yours.",
+        "text": "Your playbook is opening now, and a copy is on its way to your inbox.",
+        "buttonLabel": "Download the playbook",
+        "noLinkText": "A copy is on its way to your inbox."
+      }
+    }
+  }
+}

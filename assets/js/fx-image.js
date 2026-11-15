@@ -1,7 +1,7 @@
 /*
  * fx-image.js: WebGL image reveal + hover zoom-blur pulse.
  * Usage: wrap an image in <div class="fx-frame"> and add data-fx to the <img>.
- *   <div class="fx-frame"><img src="images/chris.jpg" alt="..." data-fx></div>
+ *   <div class="fx-frame"><img src="/assets/img/chris_phillips.png" alt="..." data-fx></div>
  * The <img> stays in the page for accessibility/SEO; a canvas draws on top of it.
  * Falls back to the plain image (with a CSS fade) if WebGL is unavailable or the
  * visitor prefers reduced motion.
