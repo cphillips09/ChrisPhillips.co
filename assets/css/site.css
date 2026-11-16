@@ -8,7 +8,7 @@
      1 Tokens · 2 Fonts · 3 Base · 4 Layout · 5 Type · 6 Top bar + toggle
      7 Buttons · 8 Section heading · 9 Cards · 10 Process steps · 11 Stats
      12 Chips · 13 Forms · 14 Disclaimer + footer · 15 404 dog card
-     16 Effects (portrait, reveal, card light) · 17 Utilities · 18 Reduced motion
+     16 Effects (portrait, reveal, card light + shadow) · 17 Utilities · 18 Reduced motion
 
    Spec: _private/PROJECT_SPEC.md, sections 5 (design) and 6 (code rules).
    ========================================================================== */
@@ -32,8 +32,9 @@
   --error: #ff8a80;
 
   /* Effects: retune the card light and glows here, in one place */
-  --fx-light: #a9e0cc;           /* bright core of the orbiting light */
+  --fx-light: rgb(236 248 243 / 92%);   /* card light: near-white, a hint of green */
   --fx-light-soft: rgb(127 184 165 / 45%);
+  --fx-shadow: rgb(0 0 0 / 60%);        /* the shadow the light casts on the right */
   --fx-glow: rgb(127 184 165 / 35%);
   --fx-warm: rgb(224 153 109 / 40%);
   --fx-dots: rgb(255 255 255 / 7%);
@@ -614,7 +615,42 @@ blockquote { margin: 0 0 var(--s-2); padding: 0 0 0 var(--s-2); border-left: 2px
 .js .reveal { opacity: 0; transform: translateY(12px); transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease); }
 .js .reveal.is-visible { opacity: 1; transform: none; }
 
-/* Orbiting card light: styles for fx-cards.js are added in Phase 6 (spec 5.6.1). */
+/* Card light (spec 5.6.1, revised by Chris 2026-11-16).
+   A thin line of light on the card's left border slides up and stops. The
+   whole card casts a shadow (box-shadow) away from the light: it starts faint,
+   to the right and slightly up, and swings down-right as the light rises, so
+   its angle follows the light. Leaving reverses both and fades them out.
+   On: mouse hover, keyboard focus inside the card, or .fx-on (added by
+   fx-cards.js on phones to the card nearest the middle of the screen).
+   Tune: --fx-light, --fx-shadow (top of this file), the 600ms timing, the
+   light's top values (where it starts and stops) and the two box-shadow
+   values (where the shadow starts and where it lands). */
+.fx-card::after, .form-card::after {
+  content: "";
+  position: absolute; left: -1px; top: 65%;
+  width: 1px; height: 70px;
+  background: linear-gradient(to bottom, rgb(236 248 243 / 0), var(--fx-light), rgb(236 248 243 / 0));
+  opacity: 0;
+  pointer-events: none;
+  transition: top 600ms ease, opacity 600ms ease;
+}
+/* The shadow. Idle = the "light low on the left" position, fully transparent,
+   so it fades in while swinging from up-right to down-right. */
+.fx-card, .form-card {
+  box-shadow: 10px -4px 28px -10px rgb(0 0 0 / 0);
+  transition: box-shadow 600ms ease;
+}
+.js .fx-card.reveal, .js .form-card.reveal {  /* keep the shadow timing on cards that fade in */
+  transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease), box-shadow 600ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .fx-card:hover::after, .form-card:hover::after { top: 25%; opacity: 1; }
+  .fx-card:hover, .form-card:hover { box-shadow: 16px 18px 36px -10px var(--fx-shadow); }
+}
+.fx-card:focus-within::after, .form-card:focus-within::after,
+.fx-on::after { top: 25%; opacity: 1; }
+.fx-card:focus-within, .form-card:focus-within,
+.fx-on { box-shadow: 16px 18px 36px -10px var(--fx-shadow); }
 
 /* 17. UTILITIES ------------------------------------------------------------ */
 .visually-hidden {

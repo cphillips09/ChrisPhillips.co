@@ -15,9 +15,13 @@
  *      it opens it first: landing pages link to #privacy and #terms this way,
  *      so visitors never leave the page.
  *   4. Fills every <span data-year> with the current year.
+ *   5. Scroll reveal (spec 5.6): section headings, cards and stats below the
+ *      first screen fade and rise into place once as they scroll into view.
+ *      Never applied to the hero or to anything in a form, and skipped for
+ *      visitors who prefer reduced motion.
  *
- * What to edit: nothing for day-to-day changes. Scroll reveal is added here in
- * Phase 6 (spec 5.6). Form prefill links (data-prefill) are handled by forms.js.
+ * What to edit: REVEAL_SELECTOR (what fades in). Form prefill links
+ * (data-prefill) are handled by forms.js; the card light is fx-cards.js.
  */
 (function () {
   'use strict';
@@ -72,4 +76,34 @@
   // 4. Footer year
   var year = String(new Date().getFullYear());
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = year; });
+
+  // 5. Scroll reveal: only things that start below the first screen, so nothing
+  //    already visible blinks, and the hero and forms are never delayed.
+  var REVEAL_SELECTOR = '.section .section-head, .section .card, .section .stat, ' +
+    '.section .split > *, .section .about-mini, .section .prose > *, .section .end-cta';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    var fold = window.innerHeight;
+    var items = [].filter.call(document.querySelectorAll(REVEAL_SELECTOR), function (el) {
+      return !el.closest('[data-form], .form-card, .hero') && el.getBoundingClientRect().top > fold;
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) {
+      // Cards in the same row arrive a beat apart (60ms each, max 240ms).
+      var i = 0, s = el.previousElementSibling;
+      while (s) { if (items.indexOf(s) > -1) i++; s = s.previousElementSibling; }
+      if (i) el.style.transitionDelay = Math.min(i * 60, 240) + 'ms';
+      el.addEventListener('transitionend', function clear() {
+        el.style.transitionDelay = ''; el.removeEventListener('transitionend', clear);
+      });
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  }
 })();
