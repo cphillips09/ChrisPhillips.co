@@ -675,17 +675,6 @@ blockquote { margin: 0 0 var(--s-2); padding: 0 0 0 var(--s-2); border-left: 2px
 .mt-4 { margin-top: var(--s-4); }
 .noscript-note { padding: 14px 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--muted); font-size: var(--fs-small); }
 
-/* Build-only: marks placeholder content during the rebuild. QA: none may remain at launch. */
-.skeleton-note {
-  margin: var(--s-3) 0 0;
-  padding: 14px 18px;
-  border: 1px dashed #4a544e;
-  border-radius: var(--radius-sm);
-  color: var(--muted);
-  font-size: var(--fs-small);
-  max-width: none;
-}
-
 /* 18. REDUCED MOTION ------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
