@@ -44,7 +44,7 @@
   --fs-h1: clamp(2.4rem, 7vw, 4.25rem);
   --fs-h2: clamp(1.8rem, 4.5vw, 2.75rem);
   --fs-h3: clamp(1.3rem, 2.4vw, 1.6rem);
-  --fs-lede: clamp(1.125rem, 2.2vw, 1.3rem);
+  --fs-lede: clamp(1.0625rem, 2.2vw, 1.3rem);
   --fs-body: 1.0625rem;          /* 17px */
   --fs-small: 0.9375rem;         /* 15px */
   --fs-fine: 0.875rem;           /* 14px, the smallest size used for legal text */
@@ -147,12 +147,13 @@ a:hover { text-decoration-thickness: 2px; }
 @media (min-width: 720px) and (max-width: 1023px) { .grid--4 { grid-template-columns: repeat(2, 1fr); } }
 
 /* Hero: one column on phones, two at 1024px (spec 5.4) */
-.hero { padding-top: var(--s-4); padding-bottom: var(--section-y); display: grid; gap: var(--s-4); align-items: center; }
+.hero { padding-top: var(--s-2); padding-bottom: var(--section-y); display: grid; gap: var(--s-3); align-items: center; }
 @media (min-width: 1024px) {
   .hero { grid-template-columns: 1.35fr 1fr; gap: var(--s-8); padding-top: var(--s-8); }
 }
-.hero__media { order: -1; max-width: 240px; }
-@media (min-width: 1024px) { .hero__media { order: 0; max-width: none; } }
+.hero__media { order: -1; width: 100%; max-width: 136px; }
+@media (min-width: 1024px) { .hero__media { order: 0; max-width: 420px; justify-self: end; } }
+.hero--home .lede { margin-bottom: var(--s-4); }
 
 /* 5. TYPE ------------------------------------------------------------------ */
 h1, h2, h3, h4 {
@@ -324,6 +325,18 @@ body[data-section="operations"] .toggle__link[data-section="operations"] {
 @media (min-width: 720px) { .stats { grid-template-columns: repeat(3, 1fr); } }
 .stat__num { display: block; font: 600 clamp(3rem, 9vw, 4.5rem)/1 var(--serif); letter-spacing: -0.03em; color: var(--ink); }
 .stat__label { display: block; margin-top: var(--s-1); color: var(--muted); }
+.stat__num--word { font-size: clamp(2.25rem, 6vw, 3.25rem); line-height: 1.1; }
+@media (min-width: 720px) { .stat__num--word { padding-top: clamp(0.4rem, 1.5vw, 0.9rem); } }
+
+/* Reviews (hidden until there are real reviews; see the note in index.html) */
+.reviews { margin-top: var(--s-8); }
+.reviews__title { margin-bottom: var(--s-3); }
+.reviews__list { list-style: none; margin: 0; padding: 0; }
+.review blockquote { margin: 0 0 var(--s-2); }
+.review blockquote p { color: var(--ink); font-size: 1.0625rem; }
+.review__meta { font-size: var(--fs-small); color: var(--muted); margin: 0; }
+
+.section-link { margin-top: var(--s-4); }
 
 /* 12. CHIPS ---------------------------------------------------------------- */
 .chips { list-style: none; margin: var(--s-3) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -532,6 +545,7 @@ blockquote { margin: 0 0 var(--s-2); padding: 0 0 0 var(--s-2); border-left: 2px
   background: linear-gradient(150deg, #2a463d 0%, #1a2a25 100%);
 }
 .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.portrait picture { display: block; }
 .fx-frame { position: relative; overflow: hidden; }
 .fx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
 .fx-frame.fx-ready img[data-fx] { opacity: 0; }
