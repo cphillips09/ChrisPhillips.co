@@ -30,17 +30,85 @@
 </header>
 <!-- PARTIAL:header-landing END -->
 <main id="main" tabindex="-1">
-  <section class="wrap hero" aria-labelledby="hero-title">
-    <div>
+  <section class="wrap hero hero--landing" aria-labelledby="hero-title">
+    <div class="hero__text">
       <p class="eyebrow">Center Grove homeowners</p>
       <h1 id="hero-title">Find out what your home will really sell for.</h1>
-      <p class="lede">Online estimates guess. I run a detailed market analysis on your home, then show you what you'd actually walk away with.</p>
+      <p class="lede">I'll run a detailed market analysis on your home and show you what you'd actually walk away with.</p>
     </div>
-    <div class="form-card">
+    <div class="form-card" id="get-started">
       <div data-form="center-grove">
         <p class="form-loading">Loading form…</p>
-          <noscript><p class="noscript-note">This form needs JavaScript. Please turn it on, or try another browser.</p></noscript>
+        <noscript><p class="noscript-note">This form needs JavaScript. Please turn it on, or try another browser.</p></noscript>
       </div>
+    </div>
+  </section>
+
+  <!-- Everything below this line supports the form above. Keep the headline and
+       form first (spec 10, landing page rule). -->
+  <section class="section" id="what-you-get" aria-labelledby="get-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="get-title">What you'll get</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="card card--dots fx-card">
+          <h3>In-depth pricing.</h3>
+          <p>Sold, active, pending and expired listings near you, adjusted for your home's condition and updates. Not an automated guess.</p>
+        </article>
+        <article class="card card--dots fx-card">
+          <h3>Your bottom line.</h3>
+          <p>Estimated net proceeds at each price point, after commissions, closing costs and payoff, so you can plan your next move with real numbers.</p>
+        </article>
+        <article class="card card--dots fx-card">
+          <h3>A plan, if you want one.</h3>
+          <p>What's worth fixing before you list and what isn't, plus how your home would be marketed: professional photos, a drone tour and floor plans.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="how-title">How it works</h2>
+      </div>
+      <ol class="steps steps--3">
+        <li class="step card fx-card">
+          <span class="step__num" aria-hidden="true"></span>
+          <h3>Tell me about your home</h3>
+          <p>Four quick questions, about two minutes. Your answers save as you go.</p>
+        </li>
+        <li class="step card fx-card">
+          <span class="step__num" aria-hidden="true"></span>
+          <h3>I run the numbers</h3>
+          <p>I study the market around your home and put together your price range and estimated net proceeds.</p>
+        </li>
+        <li class="step card fx-card">
+          <span class="step__num" aria-hidden="true"></span>
+          <h3>We talk it through</h3>
+          <p>A quick call to walk through your numbers and options. No cost, no obligation.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap narrow">
+      <div class="about-mini">
+        <div class="about-mini__photo">
+          <picture>
+            <source type="image/avif" srcset="/assets/img/chris-phillips-400.avif 400w">
+            <source type="image/webp" srcset="/assets/img/chris-phillips-400.webp 400w">
+            <img src="/assets/img/chris-phillips-400.jpg" width="400" height="500" alt="Chris Phillips" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div>
+          <h2 id="about-title" class="about-mini__title">I'm Chris Phillips.</h2>
+          <p class="muted">A listing agent with more than 20 years in real estate and 450+ homes sold. Every sale I run gets a plan, a checklist and clear updates, so you always know where things stand.</p>
+        </div>
+      </div>
+      <p class="end-cta"><a class="btn btn--primary" href="#get-started">Get my analysis <span class="arrow arrow--up" aria-hidden="true">↑</span></a></p>
     </div>
   </section>
 </main>

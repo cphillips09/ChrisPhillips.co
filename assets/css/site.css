@@ -145,6 +145,7 @@ a:hover { text-decoration-thickness: 2px; }
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
 }
 @media (min-width: 720px) and (max-width: 1023px) { .grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 720px) and (max-width: 1023px) { .grid--3 > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
 
 /* Hero: one column on phones, two at 1024px (spec 5.4) */
 .hero { padding-top: var(--s-2); padding-bottom: var(--section-y); display: grid; gap: var(--s-3); align-items: center; }
@@ -535,6 +536,48 @@ blockquote { margin: 0 0 var(--s-2); padding: 0 0 0 var(--s-2); border-left: 2px
 .footer__fine a { color: var(--muted); text-decoration: underline; text-underline-offset: .2em; padding: 6px 0; }
 .footer__fine a:hover { color: var(--ink); }
 .footer__fine .sep { margin: 0 .4em; opacity: .6; }
+
+/* 14b. LANDING PAGES (spec 10) -------------------------------------------- */
+/* Rule: headline + short lede, then the form. Everything else goes below it.
+   Phones: stacked. Desktop: copy left, form card right, both at the top. */
+.hero--landing { align-items: start; }
+.hero--landing .lede { margin-bottom: 0; }
+@media (min-width: 1024px) {
+  .hero--landing { grid-template-columns: 1fr minmax(0, 500px); gap: var(--s-6); }
+  .hero--landing .hero__text { padding-top: var(--s-5); }
+}
+
+/* Three steps in a row from tablet up (landing "How it works") */
+@media (min-width: 720px) { .steps--3 { grid-template-columns: repeat(3, 1fr); } .steps--3 > * { grid-column: auto; } }
+
+/* Cover image beside a list */
+.split { display: grid; gap: var(--s-6); align-items: center; }
+@media (min-width: 1024px) { .split { grid-template-columns: 1.1fr 1fr; gap: var(--s-8); } }
+.cover { margin: 0; }
+.cover img { width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--line-soft); box-shadow: 0 28px 60px -28px rgb(0 0 0 / 75%); }
+.split h2 { margin-bottom: var(--s-3); }
+
+/* Check-mark list */
+.ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2); }
+.ticks li { position: relative; padding-left: 2rem; max-width: var(--measure); }
+.ticks li::before {
+  content: ""; position: absolute; left: 0.15rem; top: 0.45em;
+  width: 0.95rem; height: 0.5rem;
+  border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg);
+}
+
+/* Short "about" with a round photo */
+.about-mini { display: flex; gap: var(--s-3); align-items: center; }
+.about-mini__photo { flex: none; width: 88px; height: 88px; border-radius: 50%; overflow: hidden; background: var(--surface); }
+.about-mini__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+@media (min-width: 720px) { .about-mini__photo { width: 112px; height: 112px; } }
+.about-mini__title { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: var(--s-1); }
+.made-by { margin-left: auto; margin-right: auto; }
+
+/* Second call to action at the end of a landing page: jumps back to the form */
+.end-cta { margin: var(--s-5) 0 0; max-width: none; }
+.btn:hover .arrow--up { transform: translateY(-3px); }
 
 /* 15. 404 DOG CARD (spec 3, 4.4) ------------------------------------------- */
 .dog { margin: 0 0 var(--s-4); max-width: 520px; }

@@ -28,6 +28,11 @@
  *     and auto-replies go to Chris only. ?test=0 turns it off.
  *   - After a confirmed save, fires a browser event "lead:submitted"
  *     (detail: { form, lead_id }) for analytics to hook into later.
+ *   - Consent: forms.json "consent" is shown on every form. A form that asks for
+ *     no phone number shows consent.emailOnly instead (when it exists), and that
+ *     version is what gets recorded with the lead.
+ *   - Thank-you button: a "message" success can add { "button": { "label", "url" } }
+ *     (opens in a new tab, so the thank-you stays on screen).
  *   - Landing pages: the consent text's Privacy/Terms links are pointed at the
  *     #privacy / #terms sections on the same page, so nobody leaves the page.
  */
@@ -367,6 +372,9 @@
       }) });
     });
     var multi = steps.length > 1;
+    // No phone field on this form: use the email-only consent text, if there is one.
+    var asksPhone = steps.some(function (s) { return s.fields.some(function (f) { return f.type === 'tel'; }); });
+    if (consent && consent.emailOnly && !asksPhone) consent = Object.assign({}, consent, consent.emailOnly);
     var fields = {};           // key -> { def, node, input(s), error, address }
     var current = 0, sending = false, lastSaved = '', consentAt = '';
     var started = Date.now();
@@ -702,13 +710,22 @@
       if (s.title) panel.appendChild(el('h2', { text: interpolate(s.title, vars) }));
       if (s.type === 'download' && res.download_url) {
         panel.appendChild(el('p', { text: interpolate(s.text, vars) }));
-        panel.appendChild(el('p', {}, [el('a', { className: 'btn btn--primary', href: res.download_url, target: '_blank', rel: 'noopener',
+        panel.appendChild(el('p', {}, [el('a', { className: 'btn btn--primary', href: res.download_url, rel: 'noopener',
           text: s.buttonLabel || 'Download' })]));
-        try { window.open(res.download_url, '_blank', 'noopener'); } catch (e) { /* pop-up blocked: the button is there */ }
+        // Start the download on this page (a direct-download link saves the file
+        // and the visitor stays here). If the browser blocks it, the button is there.
+        try {
+          var dl = el('a', { href: res.download_url, rel: 'noopener' });
+          dl.style.display = 'none'; document.body.appendChild(dl); dl.click(); dl.remove();
+        } catch (e) { /* the button is there */ }
       } else if (s.type === 'download') {
         panel.appendChild(el('p', { text: interpolate(s.noLinkText || s.text, vars) }));
       } else {
         panel.appendChild(el('p', { text: interpolate(s.text, vars) }));
+        if (s.button && s.button.url) {
+          panel.appendChild(el('p', {}, [el('a', { className: 'btn btn--primary', href: s.button.url, target: '_blank', rel: 'noopener',
+            text: s.button.label || 'Open' })]));
+        }
       }
       host.innerHTML = '';
       host.appendChild(panel);

@@ -4,7 +4,11 @@
     "version": "2026-11-15",
     "mode": "text",
     "html": "By submitting this form, you agree that Chris Phillips, The James Embry Team, and Keller Williams Indianapolis Metro North may contact you at the phone number and email address you provided about your real estate inquiry and related real estate services, including by phone call, text message, and email, and including calls and texts made with automated technology or prerecorded or artificial voice. Consent is not a condition of any purchase or service. Message frequency varies. Message and data rates may apply. Reply STOP to opt out of texts or HELP for help. You can unsubscribe from emails at any time. See our <a href=\"/privacy/\" target=\"_blank\">Privacy Policy</a> and <a href=\"/terms/\" target=\"_blank\">Terms</a>.",
-    "checkboxLabel": "I agree to be contacted as described above."
+    "checkboxLabel": "I agree to be contacted as described above.",
+    "emailOnly": {
+      "version": "2026-11-16-email",
+      "html": "By submitting this form, you agree that Chris Phillips, The James Embry Team, and Keller Williams Indianapolis Metro North may email you at the address you provided about your request and related real estate services. Consent is not a condition of any purchase or service. You can unsubscribe at any time. See our <a href=\"/privacy/\" target=\"_blank\">Privacy Policy</a> and <a href=\"/terms/\" target=\"_blank\">Terms</a>."
+    }
   },
   "forms": {
     "home-contact": {
@@ -31,10 +35,8 @@
       "tab": "Center Grove",
       "mode": "steps",
       "saveProgress": true,
-      "note": "No cost. No obligation.",
       "steps": [
         { "stage": "address", "title": "What's the address of the home?",
-          "hint": "Your answers are saved as you go, so you won't lose your place.",
           "fields": [ { "key": "address", "required": true } ] },
         { "stage": "timeframe", "title": "When are you thinking about selling?", "autoAdvance": true,
           "fields": [ { "key": "timeframe", "label": "Timeframe", "type": "choice", "required": true,
@@ -55,24 +57,23 @@
       "success": {
         "type": "message",
         "title": "Thanks! I'm on it.",
-        "text": "I'll start on your market analysis and reach out within one business day."
+        "text": "I'll start on your market analysis and reach out within one business day. Want to talk sooner? Pick a time that works for you.",
+        "button": { "label": "Schedule a call", "url": "https://calendar.app.google/FsUq1D2rLPjTocq89" }
       }
     },
     "sellers-playbook": {
       "tab": "Sellers Playbook",
       "mode": "single",
       "submitLabel": "Send me the playbook",
-      "note": "Instant download. No spam.",
+      "note": "Sent straight to your inbox. No spam.",
       "fields": [
         "email*",
         { "key": "offer", "type": "hidden", "value": "Home Seller's Playbook" }
       ],
       "success": {
-        "type": "download",
-        "title": "It's yours.",
-        "text": "Your playbook is opening now, and a copy is on its way to your inbox.",
-        "buttonLabel": "Download the playbook",
-        "noLinkText": "A copy is on its way to your inbox."
+        "type": "message",
+        "title": "Check your inbox.",
+        "text": "Your download link is on its way to {email}. If you don't see it in a few minutes, check your spam or promotions folder."
       }
     }
   }

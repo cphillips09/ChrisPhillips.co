@@ -30,17 +30,48 @@
 </header>
 <!-- PARTIAL:header-landing END -->
 <main id="main" tabindex="-1">
-  <section class="wrap hero" aria-labelledby="hero-title">
-    <div>
+  <section class="wrap hero hero--landing" aria-labelledby="hero-title">
+    <div class="hero__text">
       <p class="eyebrow">Free guide · 16 pages</p>
       <h1 id="hero-title">Selling on your own? Get the playbook.</h1>
-      <p class="lede">Every step from first impression to closing, in the order you'll need it: the same process professionals use, written by a broker with 20+ years and 450+ homes sold.</p>
+      <p class="lede">Every step from preparation to closing, in the order you'll need it. Written by a broker with 20+ years of experience and 450+ homes sold.</p>
     </div>
-    <div class="form-card">
+    <div class="form-card" id="get-started">
       <div data-form="sellers-playbook">
         <p class="form-loading">Loading form…</p>
-          <noscript><p class="noscript-note">This form needs JavaScript. Please turn it on, or try another browser.</p></noscript>
+        <noscript><p class="noscript-note">This form needs JavaScript. Please turn it on, or try another browser.</p></noscript>
       </div>
+    </div>
+  </section>
+
+  <!-- Everything below this line supports the form above. Keep the headline and
+       form first (spec 10, landing page rule). -->
+  <section class="section" id="inside" aria-labelledby="inside-title">
+    <div class="wrap">
+      <div class="split">
+        <figure class="cover">
+          <img src="/assets/img/playbook-cover-1200.webp" srcset="/assets/img/playbook-cover-600.webp 600w, /assets/img/playbook-cover-1200.webp 1200w" sizes="(min-width: 1024px) 560px, 100vw" width="1200" height="927" alt="Cover of the Home Seller's Playbook: How to Sell Your Home Without an Agent" loading="lazy" decoding="async">
+        </figure>
+        <div>
+          <h2 id="inside-title">What's inside</h2>
+          <ul class="ticks">
+            <li>A 7-step roadmap with a realistic 90–120 day timeline</li>
+            <li>Staging, room by room, and how to give every space a purpose</li>
+            <li>Photo order and the five-features worksheet</li>
+            <li>How to price from sold comps, and why online estimates miss</li>
+            <li>Where to list, how to write a description that earns showings, and Fair Housing rules for ads</li>
+            <li>Open house and showing-safety checklists</li>
+            <li>Negotiating offers, inspections, appraisal and closing day</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="made-by" aria-label="About the author">
+    <div class="wrap narrow center">
+      <p class="muted made-by">Made by Chris Phillips, The James Embry Team at Keller Williams Indianapolis Metro North.</p>
+      <p class="end-cta"><a class="btn btn--primary" href="#get-started">Send me the playbook <span class="arrow arrow--up" aria-hidden="true">↑</span></a></p>
     </div>
   </section>
 </main>
