@@ -13,7 +13,7 @@
  */
 window.SITE_CONFIG = {
   APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwD_OtUB7KZtCaZO02HsKErXFxiigE8TRhusTazUQfm2RusL6054MtOVEtV8lqeFBg_/exec',
-  MAPS_API_KEY: '',
+  MAPS_API_KEY: 'AIzaSyBSdYU4n5rEUcpq5MF_2JcVK57eGR3mcZw',
   GA4_ID: '',
   META_PIXEL_ID: ''
 };

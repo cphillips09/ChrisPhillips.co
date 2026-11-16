@@ -411,6 +411,19 @@ body[data-section="operations"] .toggle__link[data-section="operations"] {
 
 /* Form placeholder before forms.js builds it */
 [data-form] { min-height: 3rem; }
+/* Landing pages: hold the form's space while it loads, so the content below
+   doesn't jump when it appears (layout shift, spec 11.3). Only applies while
+   "Loading form…" is showing. Re-measure if a form's first step changes. */
+[data-form="center-grove"]:has(> .form-loading) { min-height: 376px; }
+[data-form="sellers-playbook"]:has(> .form-loading) { min-height: 418px; }
+@media (min-width: 720px) {
+  [data-form="center-grove"]:has(> .form-loading) { min-height: 354px; }
+  [data-form="sellers-playbook"]:has(> .form-loading) { min-height: 332px; }
+}
+@media (min-width: 1024px) {
+  [data-form="center-grove"]:has(> .form-loading) { min-height: 388px; }
+  [data-form="sellers-playbook"]:has(> .form-loading) { min-height: 374px; }
+}
 .form-loading { color: var(--muted); font-size: var(--fs-small); margin: 0; }
 .form-step { display: grid; gap: var(--s-3); }
 .form-step__hint { margin-top: calc(var(--s-2) * -1); }

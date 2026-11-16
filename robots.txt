@@ -1,0 +1,7 @@
+# chrisphillips.co
+# Landing pages are not blocked here on purpose: they use a noindex tag,
+# which search engines can only see if they're allowed to load the page.
+User-agent: *
+Allow: /
+
+Sitemap: https://chrisphillips.co/sitemap.xml

@@ -16,6 +16,7 @@
 <!-- PARTIAL:head END -->
 <title>Page not found | Chris Phillips</title>
 <meta name="robots" content="noindex, nofollow">
+<script src="/assets/js/dog.js" defer></script>
 </head>
 <body>
 <!-- PARTIAL:header START -->
@@ -35,9 +36,16 @@
     <div class="wrap">
       <h1>Nobody likes a lost dog.</h1>
       <p class="lede">Looks like this page wandered off. Let's pick up the scent and get you back on track.</p>
-      <p class="skeleton-note">Random dog photo and the Find your dog button arrive in Phase 7.</p>
-      <div class="btns mt-4">
-        <a class="btn btn--primary" href="/">Back to selling</a>
+      <figure class="dog mt-4">
+        <div class="dog__frame">
+          <img src="/assets/img/dog-fallback.webp" width="800" height="600" alt="A dog">
+          <img class="is-hidden" alt="" aria-hidden="true" width="800" height="600">
+        </div>
+        <figcaption class="dog__status" role="status" aria-live="polite"></figcaption>
+      </figure>
+      <div class="btns">
+        <button class="btn btn--primary" type="button" id="find-dog">Find your dog 🐾</button>
+        <a class="btn btn--ghost" href="/">Back to selling</a>
         <a class="btn btn--ghost" href="/operations/">Operations</a>
       </div>
     </div>
