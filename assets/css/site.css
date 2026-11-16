@@ -153,7 +153,7 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .hero__media { order: -1; width: 100%; max-width: 136px; }
 @media (min-width: 1024px) { .hero__media { order: 0; max-width: 420px; justify-self: end; } }
-.hero--home .lede { margin-bottom: var(--s-4); }
+.hero--home .lede, .hero--split .lede { margin-bottom: var(--s-4); }
 
 /* 5. TYPE ------------------------------------------------------------------ */
 h1, h2, h3, h4 {
@@ -299,6 +299,20 @@ body[data-section="operations"] .toggle__link[data-section="operations"] {
   background-image: radial-gradient(var(--fx-dots) 1px, transparent 1px);
   background-size: 1.1rem 1.1rem;
   background-position: center;
+}
+
+/* Capability card (operations): items line under the group name */
+.card__items { font-size: var(--fs-small); font-weight: 500; color: var(--ink); margin-bottom: var(--s-2); }
+
+/* Capability grid: five groups, 3 + 2 on desktop, no orphan on tablet */
+@media (min-width: 720px) and (max-width: 1023px) {
+  .grid--caps { grid-template-columns: repeat(2, 1fr); }
+  .grid--caps > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) {
+  .grid--caps { grid-template-columns: repeat(6, 1fr); }
+  .grid--caps > * { grid-column: span 2; }
+  .grid--caps > :nth-child(n+4) { grid-column: span 3; }
 }
 
 /* Build card: big outcome headline, one-line "how" */

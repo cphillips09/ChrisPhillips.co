@@ -17,6 +17,7 @@
 <link rel="preload" href="/forms.json" as="fetch" crossorigin>
 <script src="/assets/js/site-config.js" defer></script>
 <script src="/assets/js/forms.js" defer></script>
+<script src="/assets/js/fx-image.js" defer></script>
 <title>Chris Phillips | Real Estate Operations, Systems &amp; AI</title>
 <meta name="description" content="Chris Phillips builds the systems behind real estate businesses: data and scoreboards, CRM and AI pipelines, onboarding, marketing and accounting setup.">
 <link rel="canonical" href="https://chrisphillips.co/operations/">
@@ -35,56 +36,235 @@
 </header>
 <!-- PARTIAL:header END -->
 <main id="main" tabindex="-1">
-  <section class="wrap hero" aria-labelledby="hero-title">
-    <div>
+  <section class="wrap hero hero--split" aria-labelledby="hero-title">
+    <div class="hero__text">
       <p class="eyebrow">Operations · Systems · AI</p>
       <h1 id="hero-title">Everything must work.</h1>
-      <p class="lede">Leads, listings, data, money, people. In a real estate business, every piece depends on the others. I design the systems that keep them all working, then hand them off so they keep running without me.</p>
+      <p class="lede">Leads, listings, data, money, people. In a real estate business, every piece depends on the others. I design the systems that keep them all working, and teach others so they keep running without me.</p>
       <div class="btns">
         <a class="btn btn--primary" href="#contact" data-prefill="reason:Operations question">Tell me what's breaking <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
+    <div class="hero__media">
+      <!-- Placeholder: same portrait as the home page (D-17). Swap for an
+           Operations-specific image, or a looping video of project examples. -->
+      <div class="portrait fx-frame">
+        <picture>
+          <source type="image/avif" srcset="/assets/img/chris-phillips-400.avif 400w, /assets/img/chris-phillips-600.avif 600w, /assets/img/chris-phillips-800.avif 800w" sizes="(min-width: 1024px) 420px, 136px">
+          <source type="image/webp" srcset="/assets/img/chris-phillips-400.webp 400w, /assets/img/chris-phillips-600.webp 600w, /assets/img/chris-phillips-800.webp 800w" sizes="(min-width: 1024px) 420px, 136px">
+          <img src="/assets/img/chris-phillips-800.jpg" srcset="/assets/img/chris-phillips-400.jpg 400w, /assets/img/chris-phillips-600.jpg 600w, /assets/img/chris-phillips-800.jpg 800w" sizes="(min-width: 1024px) 420px, 136px" width="800" height="1000" alt="Chris Phillips" fetchpriority="high" data-fx>
+        </picture>
+      </div>
+    </div>
   </section>
+
   <section class="section" id="positioning" aria-labelledby="positioning-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="positioning-title">I can do it all, or show your team how.</h2>
+        <p class="lede">I've worked every side of a real estate business: sales, management, marketing, data, technology and the back office. That means I can build a system end to end myself, or give the people who'll run it the context and direction to build it right. Either way, the goal is the same: a business that runs on systems, not on memory and heroics.</p>
       </div>
-      <p class="skeleton-note">Positioning copy arrives in Phase 4.</p>
     </div>
   </section>
+
   <section class="section" id="playbook" aria-labelledby="playbook-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="playbook-title">The loop I run every time.</h2>
+        <p class="lede">Operations is designing how work gets done so the business hits its goal, whether that goal is speed, cost or flawless service. Five steps, every time.</p>
       </div>
-      <p class="skeleton-note">Identify → Build → Implement → Delegate → Repeat arrives in Phase 4.</p>
+      <ol class="steps">
+        <li class="step card fx-card">
+          <span class="step__num" aria-hidden="true"></span>
+          <h3>Identify</h3>
+          <p>Start with the work you repeat most. In real estate, that's listings and buyers. Define the primary goal, then bring in everyone who does the work or feels its effects. Their input makes the system better and the rollout easier.</p>
+        </li>
+        <li class="step card fx-card">
+          <span class="step__num" aria-hidden="true"></span>
+          <h3>Build</h3>
+          <p>A system is people, tools and process. Write the process first as a checklist, then pick tools that fit the people using them. Admins love spreadsheets. Salespeople don't, so I design around that.</p>
+        </li>
+        <li class="step card fx-card">
+          <span class="step__num" aria-hidden="true"></span>
+          <h3>Implement</h3>
+          <p>Put it to work and watch for friction and ambiguity. A good system removes decisions. Train on the &lsquo;How&rsquo; and the &lsquo;Why&rsquo;, because people execute better when they understand the purpose.</p>
+        </li>
+        <li class="step card fx-card">
+          <span class="step__num" aria-hidden="true"></span>
+          <h3>Delegate</h3>
+          <p>To scale, train others to run the system and take ownership. You keep your eyes on it through reporting feedback. That frees up time for you to build the next one.</p>
+        </li>
+        <li class="step card fx-card">
+          <span class="step__num" aria-hidden="true"></span>
+          <h3>Repeat</h3>
+          <p>Find where the most time or money goes, or what frustrates you every week. If nothing jumps out, it's time to grow: sales, marketing, recruiting. The job is never done.</p>
+        </li>
+      </ol>
     </div>
   </section>
+
   <section class="section" id="build" aria-labelledby="build-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="build-title">What I build.</h2>
       </div>
-      <p class="skeleton-note">Capability grid arrives in Phase 4.</p>
+      <div class="grid grid--caps">
+        <article class="card card--dots fx-card">
+          <h3>Data &amp; reporting</h3>
+          <p class="card__items">Data sheets · Scoreboards · Automated reporting · CRM structure</p>
+          <p>Clean data, scoreboards everyone can read, and reports that show up on their own every morning.</p>
+          <ul class="chips">
+            <li>Google Sheets</li>
+            <li>Data Studio</li>
+            <li>SQL</li>
+            <li>KW Command</li>
+          </ul>
+        </article>
+        <article class="card card--dots fx-card">
+          <h3>Systems &amp; automation</h3>
+          <p class="card__items">AI pipelines · App integrations · Websites</p>
+          <p>Tools that talk to each other through their APIs, so nobody retypes anything, and websites that turn visitors into conversations.</p>
+          <ul class="chips">
+            <li>Apps Script</li>
+            <li>APIs</li>
+            <li>API Nation</li>
+            <li>HTML/CSS/JS</li>
+          </ul>
+        </article>
+        <article class="card card--dots fx-card">
+          <h3>People &amp; performance</h3>
+          <p class="card__items">Onboarding · Coaching · Accountability</p>
+          <p>Phased onboarding for new agents, coaching built around the numbers, and accountability systems that don't depend on a weekly meeting.</p>
+          <ul class="chips">
+            <li>Training</li>
+            <li>Reporting</li>
+            <li>Coaching</li>
+          </ul>
+        </article>
+        <article class="card card--dots fx-card">
+          <h3>Marketing</h3>
+          <p class="card__items">Ads · Offer creation · Listing marketing · Lead generation · Branded communications</p>
+          <p>Offers people actually want, ads that send them to a page built to convert, and listing launches and client communication that stay on-brand every time.</p>
+          <ul class="chips">
+            <li>Facebook/Instagram</li>
+            <li>Google Ads</li>
+            <li>Websites</li>
+            <li>Video</li>
+          </ul>
+        </article>
+        <article class="card card--dots fx-card">
+          <h3>Finance &amp; accounting</h3>
+          <p class="card__items">Chart of accounts · Bookkeeping structure · Financial reporting</p>
+          <p>A chart of accounts built for a real estate business (commission income, splits, lead-gen and marketing spend), clean bookkeeping in QuickBooks Online, and profit-and-loss reporting by agent or division.</p>
+          <ul class="chips">
+            <li>QuickBooks Online</li>
+            <li>Profit &amp; Loss</li>
+            <li>Budgeting</li>
+          </ul>
+        </article>
+      </div>
+      <p class="small muted mt-4">Accounting services are operational setup and reporting, not tax or CPA services.</p>
     </div>
   </section>
+
   <section class="section" id="ai" aria-labelledby="ai-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="ai-title">AI, every day.</h2>
+        <p class="lede">I was an early adopter and I use AI every day, across ChatGPT, Claude and Gemini, not as a novelty but as part of how the work gets done: drafting, analyzing data, writing code, and building tools that tell agents exactly what to do next. I help teams put it to work in ways that are practical, safe with client data, and actually used.</p>
+        <ul class="chips">
+          <li>ChatGPT</li>
+          <li>Claude</li>
+          <li>Gemini</li>
+          <li>AI agents</li>
+          <li>Automation</li>
+        </ul>
       </div>
-      <p class="skeleton-note">AI section arrives in Phase 4.</p>
     </div>
   </section>
+
   <section class="section" id="builds" aria-labelledby="builds-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="builds-title">Selected builds</h2>
       </div>
-      <p class="skeleton-note">Eight outcome-led build cards arrive in Phase 4.</p>
+      <!-- BUILDS (spec 4.3 §6, D-19). Ordered by wow factor. Each card: outcome
+           headline, one-line "how", tool chips. -->
+      <div class="grid grid--2">
+        <article class="card card--dots card--build fx-card">
+          <h3>Every agent gets their game plan before 8&nbsp;a.m.</h3>
+          <p>An AI pipeline reads each agent's active clients and emails a prioritized action plan every morning, and flags buyer/seller matches across the team, including off-market opportunities.</p>
+          <ul class="chips">
+            <li>Google Sheets</li>
+            <li>Apps Script</li>
+            <li>Gemini API</li>
+          </ul>
+        </article>
+        <article class="card card--dots card--build fx-card">
+          <h3>The CRM, synced to a live database every 15 minutes</h3>
+          <p>Contacts, opportunities and tasks from KW Command flow into a data lake automatically, so reports and AI tools answer in seconds instead of clicks.</p>
+          <ul class="chips">
+            <li>KW Command</li>
+            <li>API Nation</li>
+            <li>Data lake</li>
+          </ul>
+        </article>
+        <article class="card card--dots card--build fx-card">
+          <h3>Call lists that build themselves, and results that write back</h3>
+          <p>Weekly call lists are generated straight from the CRM for each agent, and outcomes are pushed back into the contact record at week's end, with no retyping.</p>
+          <ul class="chips">
+            <li>KW Command</li>
+            <li>Google Sheets</li>
+            <li>API Nation</li>
+          </ul>
+        </article>
+        <article class="card card--dots card--build fx-card">
+          <h3>Accountability without the meeting</h3>
+          <p>A Daily Action Report emails each agent their last seven days: hours, conversations, appointments set and met.</p>
+          <ul class="chips">
+            <li>Google Forms</li>
+            <li>Google Sheets</li>
+            <li>Apps Script</li>
+          </ul>
+        </article>
+        <article class="card card--dots card--build fx-card">
+          <h3>Polished client emails in one click</h3>
+          <p>A Gmail add-on turns team templates into branded, on-brand emails with live market data, so every listing gets the same experience.</p>
+          <ul class="chips">
+            <li>Gmail add-on</li>
+            <li>Google Docs</li>
+            <li>Apps Script</li>
+          </ul>
+        </article>
+        <article class="card card--dots card--build fx-card">
+          <h3>A scoreboard the whole office can read</h3>
+          <p>Activity data turned into a Data Studio scoreboard that shows who's on pace at a glance.</p>
+          <ul class="chips">
+            <li>Data Studio</li>
+          </ul>
+        </article>
+        <article class="card card--dots card--build fx-card">
+          <h3>New agents productive on a schedule, not by luck</h3>
+          <p>A phased onboarding path, plus division KPIs that measure recruiting, agent development, marketing and transactions against a clear standard.</p>
+          <ul class="chips">
+            <li>Onboarding</li>
+            <li>Training</li>
+            <li>Database</li>
+          </ul>
+        </article>
+        <article class="card card--dots card--build fx-card">
+          <h3>A website and lead system built from scratch</h3>
+          <p>Sites like this: hand-coded, with ad landing pages, partial lead capture, auto-replies with resource delivery, and lead sheets that build themselves.</p>
+          <ul class="chips">
+            <li>HTML/CSS/JS</li>
+            <li>Apps Script</li>
+            <li>Google Sheets</li>
+          </ul>
+        </article>
+      </div>
     </div>
   </section>
+
   <section class="section" id="contact" aria-labelledby="contact-title">
     <div class="wrap narrow">
       <div class="section-head">
@@ -92,7 +272,7 @@
         <p class="lede">Tell me what's slowing your business down, and I'll tell you where I'd start.</p>
       </div>
       <div class="form-card">
-        <div data-form="home-contact" data-prefill="reason:Operations question">
+        <div data-form="home-contact" data-prefill="reason:Operations question" data-hide="address">
           <p class="form-loading">Loading form…</p>
           <noscript><p class="noscript-note">This form needs JavaScript. Please turn it on, or try another browser.</p></noscript>
         </div>

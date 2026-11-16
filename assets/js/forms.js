@@ -20,6 +20,8 @@
  * Other behavior:
  *   - Prefill: a button with data-prefill="reason:Sell my home" (or a
  *     placeholder with data-prefill, or ?reason=... in the URL) preselects a field.
+ *   - Hide a field on one page: data-hide="address" on the placeholder (comma-
+ *     separate several keys). Optional fields only; required fields always show.
  *   - Ad tracking: UTM tags, gclid, fbclid, first referrer, landing page and
  *     entry time are kept for the browser session and sent with every save.
  *   - Test mode: open any page with ?test=1. Lead IDs then start with "test-",
@@ -358,8 +360,11 @@
     var steps = def.mode === 'steps'
       ? def.steps
       : [{ stage: 'complete', fields: def.fields, showConsent: true, submitLabel: def.submitLabel }];
+    var hide = String(host.getAttribute('data-hide') || '').split(/[\s,]+/).filter(Boolean);
     steps = steps.map(function (s) {
-      return Object.assign({}, s, { fields: (s.fields || []).map(normalizeField) });
+      return Object.assign({}, s, { fields: (s.fields || []).map(normalizeField).filter(function (f) {
+        return f.required || hide.indexOf(f.key) === -1;   // data-hide: optional fields only
+      }) });
     });
     var multi = steps.length > 1;
     var fields = {};           // key -> { def, node, input(s), error, address }
