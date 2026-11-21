@@ -516,6 +516,11 @@ body[data-section="operations"] .toggle__link[data-section="operations"] {
 .legal-doc[open] summary::after { transform: rotate(-135deg) translateY(-3px); }
 .legal-doc summary:hover { color: var(--accent); }
 .legal-doc__body { padding: 0 0 var(--s-4); }
+/* FAQ (/home-value/): same open/close rows as the legal docs, normal-size answers */
+.faq__title { margin-bottom: var(--s-3); }
+.faq__body { padding: 0 0 var(--s-4); }
+.faq__body p { color: var(--muted); }
+.faq__body p:last-child { margin-bottom: 0; }
 .legal-doc__body, .legal-doc__body p, .legal-doc__body li { font-size: var(--fs-small); color: var(--muted); }
 .legal-doc__body h2 { font-size: 1.125rem; margin: var(--s-3) 0 var(--s-1); color: var(--ink); }
 

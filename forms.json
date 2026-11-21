@@ -31,8 +31,8 @@
         "text": "I'll be in touch within one business day. Check your inbox for a confirmation."
       }
     },
-    "center-grove": {
-      "tab": "Center Grove",
+    "seller-analysis": {
+      "tab": "Seller Analysis",
       "mode": "steps",
       "saveProgress": true,
       "steps": [

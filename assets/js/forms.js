@@ -10,7 +10,7 @@
  *
  * What to edit here (rarely):
  *   STANDARD_FIELDS  labels/autocomplete/error text for name, email, phone, address
- *   AREA             where address suggestions are centered (Center Grove)
+ *   AREA             where address suggestions are centered (metro Indianapolis, central nine counties)
  *   TIMEOUTS         how long to wait for a submit (12s) or Google Maps (4s)
  *
  * Settings come from /assets/js/site-config.js:
@@ -42,7 +42,7 @@
   var SITE = window.SITE_CONFIG || {};
   var CONFIG_URL = '/forms.json';
   var TIMEOUTS = { submit: 12000, maps: 4000 };
-  var AREA = { center: { lat: 39.56, lng: -86.165 }, radius: 20000 }; // Center Grove / Greenwood / Bargersville / Whiteland
+  var AREA = { center: { lat: 39.77, lng: -86.16 }, radius: 50000 }; // metro Indianapolis, central nine counties (bias only; 50 km is the API max)
   var TRACK_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'];
   var MAX_LEN = { text: 1000, textarea: 5000 };
 
