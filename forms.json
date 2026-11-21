@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-15",
+  "version": "2026-11-21",
   "consent": {
     "version": "2026-11-15",
     "mode": "text",
@@ -47,12 +47,12 @@
               { "value": "6–12 months", "label": "In 6–12 months" },
               { "value": "Just curious", "label": "Just curious what it's worth" }
             ] } ] },
-        { "stage": "contact", "title": "Where should I send your analysis?", "showConsent": true,
-          "fields": [ "name*", "email*", "phone*" ] },
-        { "stage": "complete", "title": "Tell me about your home", "submitLabel": "Get my analysis",
+        { "stage": "details", "title": "Tell me about your home",
           "fields": [ { "key": "details", "label": "About the home", "type": "textarea",
             "placeholder": "Beds and baths, recent updates, anything that needs work, why you're thinking of moving: whatever you'd like me to know.",
-            "hint": "Optional, but the more I know, the more accurate your analysis." } ] }
+            "hint": "Optional, but the more I know, the more accurate your analysis." } ] },
+        { "stage": "complete", "title": "Where should I send your analysis?", "showConsent": true, "submitLabel": "Get my analysis",
+          "fields": [ "name*", "email*", "phone*" ] }
       ],
       "success": {
         "type": "message",
