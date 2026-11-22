@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-21",
+  "version": "2026-11-22",
   "consent": {
     "version": "2026-11-15",
     "mode": "text",
@@ -59,6 +59,47 @@
         "title": "Thanks! I'm on it.",
         "text": "I'll start on your market analysis and reach out within one business day. Want to talk sooner? Pick a time that works for you.",
         "button": { "label": "Schedule a call", "url": "https://calendar.app.google/FsUq1D2rLPjTocq89" }
+      }
+    },
+    "center-grove-offer": {
+      "tab": "Center Grove Offer",
+      "mode": "steps",
+      "saveProgress": true,
+      "steps": [
+        { "stage": "address", "title": "What's the address of your home?",
+          "fields": [ { "key": "address", "required": true } ] },
+        { "stage": "qualify", "title": "Price & Timing",
+          "fields": [
+            { "key": "over_400k", "label": "Is your home worth more than $400,000?", "type": "choice", "required": true,
+              "options": ["Yes", "No"] },
+            { "key": "sell_q1_2027", "label": "Do you need to sell in Q1 of 2027?", "type": "choice", "required": true,
+              "options": ["Yes", "No"] }
+          ] },
+        { "stage": "complete", "title": "Where should I reach you if your home is selected?", "showConsent": true,
+          "submit": true, "submitLabel": "Submit my application",
+          "fields": [ "name*", "email*", "phone*" ] },
+        { "stage": "details", "title": "You're in. Want a better shot at being selected?",
+          "hint": "Optional, but the more I know about your home, the better I can judge it. Skip anything you like.",
+          "submitLabel": "Send my details",
+          "fields": [
+            { "key": "features", "label": "What does your home have?", "type": "checks",
+              "options": ["Updated kitchen", "Updated bathrooms", "Finished basement", "Main-floor primary suite",
+                          "Open floor plan", "3+ car garage", "Pool", "Outdoor living space", "Large or wooded lot",
+                          "Pond or water view", "Newer roof", "Newer HVAC"] },
+            { "key": "beds", "label": "Bedrooms", "inputmode": "numeric" },
+            { "key": "baths", "label": "Bathrooms", "inputmode": "decimal" },
+            { "key": "sqft", "label": "Square feet (about)", "inputmode": "numeric" },
+            { "key": "year_built", "label": "Year built (about)", "inputmode": "numeric" },
+            { "key": "special", "label": "What makes your home special?", "type": "textarea",
+              "placeholder": "Recent updates, favorite spaces, the view, the neighborhood: whatever would make a buyer fall for it." },
+            { "key": "moving", "label": "What's prompting the move?", "type": "textarea",
+              "placeholder": "Upsizing, downsizing, relocating, timing around a new home..." }
+          ] }
+      ],
+      "success": {
+        "type": "message",
+        "title": "Thanks, {first_name}. Your application is in.",
+        "text": "I'm reviewing every Center Grove home that applies. If yours is selected, I'll contact you by phone and email, and you'll have 48 hours to accept. Have photos? Reply to your confirmation email and attach a few."
       }
     },
     "sellers-playbook": {

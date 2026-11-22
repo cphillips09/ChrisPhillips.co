@@ -26,6 +26,9 @@
  *     entry time are kept for the browser session and sent with every save.
  *   - Test mode: open any page with ?test=1. Lead IDs then start with "test-",
  *     and auto-replies go to Chris only. ?test=0 turns it off.
+ *   - Dry run: open any page with ?dryrun=1 to click through every step without
+ *     sending anything (each save is logged to the browser console instead).
+ *     Handy on Live Server before a new form is pushed. ?dryrun=0 turns it off.
  *   - After a confirmed save, fires a browser event "lead:submitted"
  *     (detail: { form, lead_id }) for analytics to hook into later.
  *   - Consent: forms.json "consent" is shown on every form. A form that asks for
@@ -35,6 +38,13 @@
  *     (opens in a new tab, so the thank-you stays on screen).
  *   - Landing pages: the consent text's Privacy/Terms links are pointed at the
  *     #privacy / #terms sections on the same page, so nobody leaves the page.
+ *   - Submit before the last step: a step with "submit": true sends the lead for
+ *     real (alert + auto-reply fire on its stage), then moves on to the remaining
+ *     optional step(s). Back can't return past it. If the last step is left
+ *     empty, finishing just shows the thank-you without sending again.
+ *   - Checkbox groups: { "type": "checks", "options": [...] } saves the boxes
+ *     ticked as one comma-separated value.
+ *   - Number keypads: "inputmode": "numeric" (or "decimal") on a text field.
  */
 (function () {
   'use strict';
@@ -130,6 +140,9 @@
   if (query.get('test') === '1') store.set('cp_test', 1);
   if (query.get('test') === '0') store.del('cp_test');
   function isTestMode() { return !!store.get('cp_test'); }
+  if (query.get('dryrun') === '1') store.set('cp_dry', 1);
+  if (query.get('dryrun') === '0') store.del('cp_dry');
+  function isDryRun() { return !!store.get('cp_dry'); }
 
   function tracking() {
     var t = store.get('cp_track') || {};
@@ -157,6 +170,10 @@
   // as text/plain (a "simple" request). Its reply is still readable (spec 7.4).
   function post(payload, opts) {
     opts = opts || {};
+    if (isDryRun()) {
+      if (window.console) console.info('forms.js dry run (not sent):', payload);
+      return Promise.resolve({ ok: true, lead_id: payload.lead_id, dry_run: true });
+    }
     if (!SITE.APPS_SCRIPT_URL) return Promise.reject(new Error('not-configured'));
     var init = {
       method: 'POST',
@@ -377,6 +394,7 @@
     if (consent && consent.emailOnly && !asksPhone) consent = Object.assign({}, consent, consent.emailOnly);
     var fields = {};           // key -> { def, node, input(s), error, address }
     var current = 0, sending = false, lastSaved = '', consentAt = '';
+    var submittedAt = -1;      // index of a "submit": true step that has been sent
     var started = Date.now();
     self.key = key;
     self.host = host;
@@ -439,6 +457,21 @@
       var optional = !f.required && f.type !== 'select' && f.type !== 'choice'
         ? el('span', { className: 'field__optional', text: ' (optional)' }) : null;
 
+      if (f.type === 'checks') {
+        var box = el('fieldset', { className: 'choices choices--checks', 'aria-describedby': described, id: id });
+        box.appendChild(el('legend', { className: labelHidden ? 'visually-hidden' : 'field__label' },
+          [f.label, f.required ? null : el('span', { className: 'field__optional', text: ' (optional)' })]));
+        entry.inputs = (f.options || []).map(function (o, n) {
+          var opt = typeof o === 'string' ? { value: o, label: o } : o;
+          var cb = el('input', { type: 'checkbox', name: f.key, value: opt.value, id: id + '-' + n });
+          cb.addEventListener('change', function () { clearError(f.key); });
+          box.appendChild(el('label', { className: 'choice', for: id + '-' + n }, [cb, el('span', { text: opt.label })]));
+          return cb;
+        });
+        entry.node = el('div', { className: 'field' }, [box, error]);
+        return entry.node;
+      }
+
       if (f.type === 'choice') {
         var group = el('fieldset', { className: 'choices', 'aria-describedby': described, id: id });
         group.appendChild(el('legend', { className: labelHidden ? 'visually-hidden' : 'field__label', text: f.label }));
@@ -471,7 +504,7 @@
       } else {
         var type = f.type === 'email' ? 'email' : f.type === 'tel' ? 'tel' : 'text';
         input = el('input', Object.assign({ className: 'input', type: type, maxlength: MAX_LEN.text,
-          inputmode: f.type === 'email' ? 'email' : f.type === 'tel' ? 'tel' : null,
+          inputmode: f.inputmode || (f.type === 'email' ? 'email' : f.type === 'tel' ? 'tel' : null),
           autocapitalize: f.type === 'email' ? 'off' : null, spellcheck: f.type === 'email' || f.type === 'tel' ? 'false' : null }, common));
       }
       entry.input = input;
@@ -545,6 +578,7 @@
         return c ? c.value : '';
       }
       if (f.type === 'checkbox') return e.input.checked ? 'yes' : '';
+      if (f.type === 'checks') return e.inputs.filter(function (c) { return c.checked; }).map(function (c) { return c.value; }).join(', ');
       if (f.type === 'address') return e.address.value().address;
       if (f.type === 'email') return normalizeEmail(e.input.value);
       return String(e.input.value || '').trim();
@@ -584,7 +618,7 @@
       var f = fields[key].def, v = valueOf(key);
       if (f.type === 'hidden') return '';
       if (f.required && !v) {
-        if (f.type === 'choice') return f.required_msg || TEXT.chooseOne;
+        if (f.type === 'choice' || f.type === 'checks') return f.required_msg || TEXT.chooseOne;
         if (f.type === 'checkbox') return TEXT.consent;
         return f.required_msg || 'Please fill in ' + f.label.toLowerCase() + '.';
       }
@@ -644,11 +678,11 @@
       current = i;
       stepNodes.forEach(function (n, k) { n.hidden = k !== i; });
       var last = i === steps.length - 1;
-      next.textContent = last ? (steps[i].submitLabel || def.submitLabel || 'Submit') : 'Continue';
+      next.textContent = (last || steps[i].submit) ? (steps[i].submitLabel || def.submitLabel || 'Submit') : 'Continue';
       if (multi) {
         progressBar.style.width = ((i + 1) / steps.length * 100) + '%';
         count.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
-        back.hidden = i === 0;
+        back.hidden = i === 0 || i <= submittedAt + 1 && submittedAt > -1;
         if (note) note.hidden = !(i === 0 || last);
         if (moveFocus) {
           live.textContent = count.textContent;
@@ -679,8 +713,13 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (sending) return;
-      if (current < steps.length - 1) return goNext();
+      var midSubmit = current < steps.length - 1 && steps[current].submit && submittedAt < current;
+      if (current < steps.length - 1 && !midSubmit) return goNext();
       if (!validateStep(current)) return;
+      // Already sent at an earlier step and nothing was filled in here: just say thanks.
+      if (!midSubmit && submittedAt > -1 && !steps[current].fields.some(function (f) { return f.type !== 'hidden' && valueOf(f.key); })) {
+        return success({}, values());
+      }
       if (!SITE.APPS_SCRIPT_URL) { status.textContent = TEXT.unavailable; return; }
 
       sending = true;
@@ -691,8 +730,17 @@
       status.textContent = '';
       var data = payload(steps[current].stage);
       post(data).then(function (res) {
+        if (midSubmit) {
+          submittedAt = current;
+          lastSaved = JSON.stringify(values()) + '|' + steps[current].stage;
+          sending = false;
+          next.disabled = false;
+          back.disabled = false;
+          document.dispatchEvent(new CustomEvent('lead:submitted', { detail: { form: key, lead_id: self.leadId } }));
+          return show(current + 1, true);
+        }
         success(res || {}, data);
-        document.dispatchEvent(new CustomEvent('lead:submitted', { detail: { form: key, lead_id: self.leadId } }));
+        if (submittedAt < 0) document.dispatchEvent(new CustomEvent('lead:submitted', { detail: { form: key, lead_id: self.leadId } }));
       }, function () {
         sending = false;
         next.disabled = false;

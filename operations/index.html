@@ -17,7 +17,7 @@
 <link rel="preload" href="/forms.json" as="fetch" crossorigin>
 <script src="/assets/js/site-config.js" defer></script>
 <script src="/assets/js/forms.js" defer></script>
-<script src="/assets/js/fx-image.js" defer></script>
+<script src="/assets/js/ops-hero.js" defer></script>
 <script src="/assets/js/fx-cards.js" defer></script>
 <title>Chris Phillips | Real Estate Operations, Systems &amp; AI</title>
 <meta name="description" content="Chris Phillips builds the systems behind real estate businesses: data and scoreboards, CRM and AI pipelines, onboarding, marketing and accounting setup.">
@@ -56,15 +56,11 @@
         <a class="btn btn--primary" href="#contact" data-prefill="reason:Operations question">Tell me what's breaking <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
-    <div class="hero__media">
-      <!-- Placeholder: same portrait as the home page (D-17). Swap for an
-           Operations-specific image, or a looping video of project examples. -->
-      <div class="portrait fx-frame">
-        <picture>
-          <source type="image/avif" srcset="/assets/img/chris-phillips-400.avif 400w, /assets/img/chris-phillips-600.avif 600w, /assets/img/chris-phillips-800.avif 800w" sizes="(min-width: 1024px) 420px, 136px">
-          <source type="image/webp" srcset="/assets/img/chris-phillips-400.webp 400w, /assets/img/chris-phillips-600.webp 600w, /assets/img/chris-phillips-800.webp 800w" sizes="(min-width: 1024px) 420px, 136px">
-          <img src="/assets/img/chris-phillips-800.jpg" srcset="/assets/img/chris-phillips-400.jpg 400w, /assets/img/chris-phillips-600.jpg 600w, /assets/img/chris-phillips-800.jpg 800w" sizes="(min-width: 1024px) 420px, 136px" width="800" height="1000" alt="Chris Phillips" fetchpriority="high" data-fx>
-        </picture>
+    <div class="hero__media hero__media--ops">
+      <div class="ops-hero" tabindex="0" role="img"
+           aria-label="Real estate operations pieces swirling, then assembling into a house: leads, listings and leverage as the foundation, systems and people as the walls, growth as the roof, and AI at the peak.">
+        <canvas class="oh-2d" aria-hidden="true"></canvas>
+        <canvas class="oh-gl" aria-hidden="true"></canvas>
       </div>
     </div>
   </section>
@@ -183,7 +179,7 @@
       <div class="section-head">
         <h2 id="ai-title">AI, every day.</h2>
         <p class="lede">I was an early adopter and I use AI every day, across ChatGPT, Claude and Gemini, not as a novelty but as part of how the work gets done: drafting, analyzing data, writing code, and building tools that tell agents exactly what to do next. I help teams put it to work in ways that are practical, safe with client data, and actually used.</p>
-        <ul class="chips">
+        <ul class="chips chips--glow">
           <li>ChatGPT</li>
           <li>Claude</li>
           <li>Gemini</li>
