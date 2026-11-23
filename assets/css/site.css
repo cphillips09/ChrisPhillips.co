@@ -158,6 +158,17 @@ a:hover { text-decoration-thickness: 2px; }
 .hero__media { order: -1; width: 100%; max-width: 136px; }
 @media (min-width: 1024px) { .hero__media { order: 0; max-width: 420px; justify-self: end; } }
 .hero--home .lede, .hero--split .lede { margin-bottom: var(--s-4); }
+/* Home hero, stacked (< 1024px): portrait sits directly under the H1, centered.
+   .hero__text dissolves into the hero grid so its children can be reordered around the image. */
+@media (max-width: 1023px) {
+  .hero--home { gap: 0; }
+  .hero--home .hero__text { display: contents; }
+  .hero--home .eyebrow { order: 1; }
+  .hero--home h1 { order: 2; }
+  .hero--home .hero__media { order: 3; justify-self: center; margin-bottom: var(--s-3); }
+  .hero--home .lede { order: 4; }
+  .hero--home .btns { order: 5; }
+}
 
 /* Operations hero: swirl that assembles into a house (assets/js/ops-hero.js).
    Phones: full width under the text (labels need room). 1024px+: same slot as the portrait. */
