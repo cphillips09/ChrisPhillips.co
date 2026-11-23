@@ -155,7 +155,7 @@ a:hover { text-decoration-thickness: 2px; }
 @media (min-width: 1024px) {
   .hero { grid-template-columns: 1.35fr 1fr; gap: var(--s-8); padding-top: var(--s-8); }
 }
-.hero__media { order: -1; width: 100%; max-width: 136px; }
+.hero__media { order: -1; width: 100%; max-width: 200px; }
 @media (min-width: 1024px) { .hero__media { order: 0; max-width: 420px; justify-self: end; } }
 .hero--home .lede, .hero--split .lede { margin-bottom: var(--s-4); }
 /* Home hero, stacked (< 1024px): portrait sits directly under the H1, centered.
