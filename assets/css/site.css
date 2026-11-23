@@ -163,6 +163,9 @@ a:hover { text-decoration-thickness: 2px; }
    Phones: full width under the text (labels need room). 1024px+: same slot as the portrait. */
 .hero__media--ops { order: 0; max-width: 420px; justify-self: center; }
 @media (min-width: 1024px) { .hero__media--ops { justify-self: end; } }
+/* Ops hero text: no button under the lede, and the lede hides once the house drops below the headline (< 1024px). */
+.hero--ops .lede { margin-bottom: 0; }
+@media (max-width: 1023px) { .hero--ops .lede { display: none; } }
 .ops-hero {
   position: relative; width: 100%; aspect-ratio: 4 / 5; cursor: pointer;
   background: transparent;              /* blends into the page: no visible box */
