@@ -167,7 +167,7 @@ a:hover { text-decoration-thickness: 2px; }
   .hero--home h1 { order: 2; }
   .hero--home .hero__media { order: 3; justify-self: center; margin-bottom: var(--s-3); }
   .hero--home .lede { order: 4; }
-  .hero--home .btns { order: 5; }
+  .hero--home .btns { order: 5; justify-content: center; }
 }
 
 /* Operations hero: swirl that assembles into a house (assets/js/ops-hero.js).
@@ -606,6 +606,16 @@ blockquote { margin: 0 0 var(--s-2); padding: 0 0 0 var(--s-2); border-left: 2px
    Phones: stacked. Desktop: copy left, form card right, both at the top. */
 .hero--landing { align-items: start; }
 .hero--landing .lede { margin-bottom: 0; }
+/* .hero--form-first (/home-value/): when stacked (< 1024px) the form sits directly under the H1
+   and the lede moves below the form. .hero__text dissolves into the grid so its children can be reordered. */
+@media (max-width: 1023px) {
+  .hero--form-first { gap: 0; }
+  .hero--form-first .hero__text { display: contents; }
+  .hero--form-first .eyebrow { order: 1; }
+  .hero--form-first h1 { order: 2; }
+  .hero--form-first .form-card { order: 3; margin-top: var(--s-1); }
+  .hero--form-first .lede { order: 4; margin-top: var(--s-3); }
+}
 @media (min-width: 1024px) {
   .hero--landing { grid-template-columns: 1fr minmax(0, 500px); gap: var(--s-6); }
   .hero--landing .hero__text { padding-top: var(--s-5); }
